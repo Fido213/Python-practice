@@ -7,7 +7,22 @@ status = {
 # tasks will be appended to
 
 
-def check_task(INPstatus):
+def get_user_input():
+    userinput = input("Enter status and task name in order")
+    # get the user input and then split it into status and task name
+    split_input = userinput.split(" ", 1)
+    print(split_input)
+    # assign a variable to the status
+    status_input = split_input[0].lower()  # convert the status to lowercase
+    task_inputsplit = split_input[1:]  # assign a variable to the task
+    # the 1: is like in excel where u select a range of cells from a
+    # certain index
+    task_input = ' '.join(task_inputsplit)   # join the list into a string
+    # simplifies the task name aswell as going from list to string
+    return status_input, task_input  # return the status and task input
+
+
+def check_task(INPstatus, task_input):
     if INPstatus in status:
         status[INPstatus].append(task_input)
         # append the task to the list of the status
@@ -22,22 +37,13 @@ def check_task(INPstatus):
         print("Invalid status. Please enter 'done', 'unfinished', or 'pending'.")
 
 
-for loop in range(5):
+# Main program loop
+print("Welcome to the To-Do List Manager!")
+while True:
     # loop to allow the user to enter multiple tasks (debug too)
     if input("do you want to add another task? (yes/no): ").lower() != 'yes':
         break
     else:
-        userinput = input("Enter status and task name in order")
-        # get the user input and then split it into status and task name
-        split_input = userinput.split(" ", 1)
-        print(split_input)
-        # assign a variable to the status
-        status_input = split_input[0]
-        task_inputsplit = split_input[1:]  # assign a variable to the task
-        # the 1: is like in excel where u select a range of cells from a certain index
-        task_input = ' '.join(task_inputsplit)   # join the list into a string
-        # simplifies the task name aswell as going from list to string
-        check_task(status_input)
-
-
-print(f"unfished list: {status['pending']}")
+        status_input, task_input = get_user_input()
+        # get the user input and assign it to the status_input and task_input
+        check_task(status_input, task_input)
