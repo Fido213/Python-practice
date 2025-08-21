@@ -12,6 +12,36 @@ status = {
 # tasks will be appended to
 
 
+def read_data(filename):
+    try:
+        with open(filename, 'r') as file:  # open the file in read mode
+            saveddata = json.load(file)
+            # load the json data into python objects
+            print(f"Data read from '{filename}': {saveddata}")
+            # debugging line
+            return saveddata  # returns the data for another funciton
+    except FileNotFoundError:
+        print(f"File '{filename}' not found.")
+        return None
+    except json.JSONDecodeError:
+        print(f"Error decoding JSON from file '{filename}'.")
+        return None
+
+
+def append_data(filename, data):
+    saveddata = read_data(filename)
+    # read the data from the file in the previous function
+    saveddata.append(data)  # append the data to the list
+    try:
+        with open(filename, 'w') as file:  # open the file in write mode
+            json.dump(data, file, indent=4)
+            # dump the data into the file in json format
+            print(f"Data written to '{filename}': {data}")  # debugging line
+    except IOError as e:
+        print(f"Error writing to file '{filename}': {e}")
+        return None
+
+
 def get_user_input():
     userinput = input("Enter status and task name in order")
     # get the user input and then split it into status and task name
@@ -28,24 +58,8 @@ def get_user_input():
 
 
 def check_task(INPstatus, task_input):
-    try:
-        with open('Project4todolist/memory.json', 'r') as file:
-            # set a context manager to open the file in read mode
-            # this will let me check old memoery as to not overide it
-            status = json.load(file)
-            # load the json data (dictionary in json format) into the existing
-            # python dictionary status, this basically updates the status
-            # dictionary
-    except FileNotFoundError:
-        print("Memory file not found, creating a new one.")
-        status = {
-            "done": [],
-            "unfinished": [],
-            "pending": []
-        }
-        # if the file is not found, create a new dictionary with empty lists
-        # for each status
     if INPstatus in status:
+        saveddata = read_data('testcode.json')
         status[INPstatus].append(task_input)
         # append the task to the list of the status
         # INP status is the paramater that is passed to the function,
@@ -53,14 +67,6 @@ def check_task(INPstatus, task_input):
         # if INPStatus is found in the dictionary status,
         # the task input is then appended to the list of the
         # corresponding status
-        with open('Project4todolist/memory.json', 'w') as file:
-            # sets a context manager to open the file in write mode
-            # (this also makes it so that it closes automatically)
-            # memory.json is saved as "file"
-            json.dump(status, file, indent=4)
-            # json.dump is used to basically takes the dictionary and writes
-            # it in json format in the file (memory.json)
-            # indent 4 is to make it human readable
         print(f"Task '{task_input}' added to '{INPstatus}' list.")
         print(f"Current '{INPstatus}' list: {status[INPstatus]}")
     else:
