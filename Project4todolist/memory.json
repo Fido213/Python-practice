@@ -1,12 +1,7 @@
 {
     "done": [
-        "number guessing game with python and gui using tkinter",
-        "updating code with git and syncing with github "
+        " test 3.2 seeing if memory file exists, but is empty: 2025-08-23 01:06:24"
     ],
-    "unfinished": [
-        "start art commissioning and coding comissioning "
-    ],
-    "pending": [
-        "to do list, implementing new features"
-    ]
+    "unfinished": [],
+    "pending": []
 }
