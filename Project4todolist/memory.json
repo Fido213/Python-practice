@@ -1,7 +1,21 @@
 {
     "done": [
-        " test 3.2 seeing if memory file exists, but is empty: 2025-08-23 01:06:24"
+        " test 3.2 seeing if memory file exists, but is empty: 2025-08-23 01:06:24",
+        "hey: 2025-08-23 02:27:35",
+        "implemented a terminal interface with an add function : 2025-08-24 01:05:10",
+        "remade user interface to be more terminal like: 2025-08-24 01:11:24",
+        "remade terminal and input commands again: 2025-08-24 01:13:15",
+        "test1 checking if read memory function works as expected: 2025-08-24 01:42:15",
+        ": 2025-08-24 01:43:35",
+        "add a view function, seperates everything in a vertical manner, doesnt show dates for decluttering reasons, can keep in viewing till needed: 2025-08-24 02:37:07"
     ],
-    "unfinished": [],
-    "pending": []
+    "unfinished": [
+        " add a remove function : 2025-08-24 01:05:10",
+        "add uuid for remove functions: 2025-08-24 01:13:15",
+        "remove some work from check_task: 2025-08-24 01:13:15",
+        "add a checker for seeing if i put 1 string instead of 2 (ie done and not putting anything after): 2025-08-24 01:45:40"
+    ],
+    "pending": [
+        "add a view function to the to do list: 2025-08-24 01:05:10"
+    ]
 }
