@@ -12,6 +12,9 @@ status = {
 # This is a dictionary, the key is the status and its value is a list in which
 # tasks will be appended to
 
+# def sanitise_memory():
+# def update_memory():
+
 
 def read_memory():
     try:
@@ -79,7 +82,11 @@ def add_task(INPstatus, task_input):
     status = read_memory()
     # get status from read_memory function
     if INPstatus in status:
-        status[INPstatus].append(task_input + ": " + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        unique_id = str(uuid.uuid4())
+        # generate a unique id for the task using uuid4
+        status[INPstatus].append(datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                                 + " : " + unique_id + " ; "
+                                   + task_input)
         # append the task to the list of the status
         # INP status is the paramater that is passed to the function,
         # the INPstatus is the status_input that is passed to the function
@@ -115,10 +122,10 @@ def view_tasks():
         if status_input in status:
             print(f"\n Tasks in '{status_input}' list:")
             for task in status[status_input]:
-                print(f"- {task.split(':')[0]}")  # Print only the part before the
-                # colon the [0] is an index to get only the first part of the split
+                print(f"- {';'.join(task.split(';')[1:])}")  # Print only the part after the
+                # ; the [1:] is an index to get only the second part of the split
                 # string (via the .split function and precising that its split
-                # from the ":")
+                # from the ";")
                 # i also use a for loop to loop through all the tasks, and the
                 # print function makes it so that its a new line for each task
         elif status_input == 'exit':
@@ -127,6 +134,33 @@ def view_tasks():
         else:
             print("Invalid status. Please enter 'done', 'unfinished', 'pending'"\
                   ", or 'exit' to quit.")
+
+
+def remove_task():
+    status = read_memory()  # get memory from read_memory function
+    status_input = input("\nEnter status to delete task from (done, unfinished, pending)"
+                         ",\nType exit to quit deleting: ").lower()
+    # get the user input and convert it to lowercase
+
+    if status_input in status:
+        print(f"\n Pick a task to remove from '{status_input}' list:")
+        orderedlist = []
+        for task in status[status_input]:
+            if ";" in task:
+                orderedlist.append(";".join(task.split(';')[1:]))
+            else:
+                orderedlist.append(task)
+        tasks = [
+            inquirer.List(
+                'taskstodelete',
+                choices=orderedlist
+            )
+        ]
+        taskconfirmed = inquirer.prompt(tasks)['taskstodelete']
+        print(f"Removing task: {taskconfirmed}")
+    elif status_input == 'exit':
+        print("Exiting remove tasks.")
+
 
 
 def terminal_interface():
@@ -152,3 +186,5 @@ while True:
         add_task(status_input, task_input)
     elif user_input == 'view':
         view_tasks()
+    elif user_input == 'remove':
+        remove_task()

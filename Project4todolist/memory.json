@@ -7,7 +7,23 @@
         "remade terminal and input commands again: 2025-08-24 01:13:15",
         "test1 checking if read memory function works as expected: 2025-08-24 01:42:15",
         ": 2025-08-24 01:43:35",
-        "add a view function, seperates everything in a vertical manner, doesnt show dates for decluttering reasons, can keep in viewing till needed: 2025-08-24 02:37:07"
+        "add a view function, seperates everything in a vertical manner, doesnt show dates for decluttering reasons, can keep in viewing till needed: 2025-08-24 02:37:07",
+        "view functionality: 2025-08-24 02:56:48",
+        "testing remove placeholder: 2025-08-27 20:38:09",
+        "testing core functionalities: 2025-08-30 01:22:01",
+        "testing core functionalities again: 2025-08-30 01:25:10",
+        "first test for uuid identifers for tasks: 2025-08-30 01:39:36; 0700a4a9-69fe-4f2c-a537-8546e5d09d0b",
+        "reformatted memory.json also second test for new uuid : 2025-08-30 01:42:13; 115a5116-1f27-483a-84a6-19b89d1c2353",
+        "2025-08-30 01:43:19 : 4e600495-9d36-46a3-a149-c7f386099572 ; test 3 for reformatted memory.json aswell as uuid ",
+        "2025-08-30 01:46:05 : e381b059-a7b3-44a1-a97b-5405558fc310 ; test1 uuid",
+        "2025-08-30 01:46:10 : 4c508f60-2418-4f9a-81de-7d0859b2a425 ; test2 uuid",
+        "2025-08-30 01:50:52 : 7bcbf7d0-5205-48d8-99ee-718b2d187327 ; testing view function after new memory split",
+        "2025-08-30 01:52:16 : 2c4f7a41-7b42-4a08-8845-ed199baaf178 ; view fucntion test 2 after memoery reformat",
+        "2025-08-30 01:55:17 : b5918acc-a39b-4362-922c-d18391d4f699 ; finished up new view formatted function for memory format",
+        "2025-08-30 02:51:25 : 2760fc24-eebe-424a-9bcd-17ab17a0fc67 ; doing hw",
+        "2025-08-30 03:34:04 : 9c21b475-616f-455e-bda2-ce52d8c50411 ; testing quirk issue with view function; test1",
+        "2025-08-30 03:56:15 : 4b17fc58-49d4-47da-ac01-9e070dd7b7a4 ; ",
+        "2025-08-30 03:56:27 : 711f8c8b-e0f3-44e0-99a9-e973752c0d09 ; testing remove function"
     ],
     "unfinished": [
         " add a remove function : 2025-08-24 01:05:10",
@@ -16,6 +32,9 @@
         "add a checker for seeing if i put 1 string instead of 2 (ie done and not putting anything after): 2025-08-24 01:45:40"
     ],
     "pending": [
-        "add a view function to the to do list: 2025-08-24 01:05:10"
+        "add a view function to the to do list: 2025-08-24 01:05:10",
+        "reformat memory.json for easier split functions (put date before task, aswell as adding a uuid afterwards thats seperated with a different seperator being \";\"): 2025-08-24 02:57:48",
+        "2025-08-30 01:53:16 : ebaf2821-8605-4f55-a284-5d3348e8c8cb ; ",
+        "2025-08-30 01:53:23 : 0183614c-6202-499b-909c-1e34677e8ca5 ; testing new view function"
     ]
 }
