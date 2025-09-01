@@ -12,8 +12,52 @@ status = {
 # This is a dictionary, the key is the status and its value is a list in which
 # tasks will be appended to
 
-# def sanitise_memory():
-# def update_memory():
+
+def split_three(task):
+    stripped_task = task.strip()
+    indexsemi = stripped_task.find(";")
+    indexcolon = stripped_task.find(":")
+    if indexsemi > indexcolon:
+        first_section = stripped_task[:indexcolon-1].strip()
+        middle_section = stripped_task[indexcolon+1:indexsemi].strip()
+        third_section = stripped_task[indexsemi+1:].strip()
+        list_all_sections = [first_section, middle_section, third_section]
+        print(list_all_sections)
+        return list_all_sections
+    elif indexcolon > indexsemi:
+        first_section = stripped_task[:indexsemi-1].strip()
+        middle_section = stripped_task[indexsemi+1:indexcolon].strip()
+        third_section = stripped_task[indexcolon+1:].strip()
+        list_all_sections = [first_section, middle_section, third_section]
+        print(list_all_sections)
+        return list_all_sections
+
+
+def uuid_check(list_string):
+    for task in list_string:
+        print(task)
+        if len(task) == 36:
+            try:
+                uuid.UUID(task)
+                print("is uuid")
+                uuid_in_list = task
+                return uuid_in_list
+            except ValueError:
+                print("its not uuid")
+        else:
+            print("not uuid")
+
+
+def sanitise():
+    for task in status["done"]:
+        list_all_sections = split_three(task)
+        uuid_check(list_all_sections)
+    for task in status["pending"]:
+        list_all_sections = split_three(task)
+        uuid_check(list_all_sections)
+    for task in status["unfinished"]:
+        list_all_sections = split_three(task)
+        uuid_check(list_all_sections)
 
 
 def read_memory():
@@ -62,6 +106,20 @@ def read_memory():
         # if the file is not found, create a new dictionary
 
 
+def update_memory(data):
+    with open('Project4todolist/memory.json', 'w') as file:
+        # write mode also creates the file if it does not exist
+        # so this basically sets up error avoidance and makes it up
+        # by creating the file later whilst reseting the dictionary
+        # sets a context manager to open the file in write mode
+        # (this also makes it so that it closes automatically)
+        # memory.json is saved as "file"
+        json.dump(data, file, indent=4)
+        # json.dump is used to basically takes the dictionary and writes
+        # it in json format in the file (memory.json)
+        # indent 4 is to make it human readable
+
+
 def get_user_input():
     # this function is only used for the "add" functionality
     userinput = input("Enter status and task name in order: ")
@@ -83,10 +141,11 @@ def add_task(INPstatus, task_input):
     # get status from read_memory function
     if INPstatus in status:
         unique_id = str(uuid.uuid4())
+        current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         # generate a unique id for the task using uuid4
-        status[INPstatus].append(datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                                 + " : " + unique_id + " ; "
-                                   + task_input)
+        status[INPstatus].append(current_date
+                                 + " : " + unique_id
+                                 + " ; " + task_input)
         # append the task to the list of the status
         # INP status is the paramater that is passed to the function,
         # the INPstatus is the status_input that is passed to the function
@@ -95,17 +154,7 @@ def add_task(INPstatus, task_input):
         # corresponding status
         # datetime.now().strftime is used to format the date and time
         # to a more human readable format
-        with open('Project4todolist/memory.json', 'w') as file:
-            # write mode also creates the file if it does not exist
-            # so this basically sets up error avoidance and makes it up
-            # by creating the file later whilst reseting the dictionary
-            # sets a context manager to open the file in write mode
-            # (this also makes it so that it closes automatically)
-            # memory.json is saved as "file"
-            json.dump(status, file, indent=4)
-            # json.dump is used to basically takes the dictionary and writes
-            # it in json format in the file (memory.json)
-            # indent 4 is to make it human readable
+        update_memory(status)
         print(f"Task '{task_input}' added to '{INPstatus}' list at {datetime.now()}.")
         # print(f"Current '{INPstatus}' list: {status[INPstatus]}")
         # this is used for debugging purposes
@@ -170,6 +219,7 @@ def terminal_interface():
 
 # Main program loop
 while True:
+    sanitise()
     print("\n ----- Todo List Terminal Interface -----"
           "\nYou can add tasks with 'add', view tasks with 'view', "
           "remove tasks with 'remove', update tasks with 'update' "

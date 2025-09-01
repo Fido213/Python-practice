@@ -1,40 +1,17 @@
 {
     "done": [
-        " test 3.2 seeing if memory file exists, but is empty: 2025-08-23 01:06:24",
-        "hey: 2025-08-23 02:27:35",
-        "implemented a terminal interface with an add function : 2025-08-24 01:05:10",
-        "remade user interface to be more terminal like: 2025-08-24 01:11:24",
-        "remade terminal and input commands again: 2025-08-24 01:13:15",
-        "test1 checking if read memory function works as expected: 2025-08-24 01:42:15",
-        ": 2025-08-24 01:43:35",
-        "add a view function, seperates everything in a vertical manner, doesnt show dates for decluttering reasons, can keep in viewing till needed: 2025-08-24 02:37:07",
-        "view functionality: 2025-08-24 02:56:48",
-        "testing remove placeholder: 2025-08-27 20:38:09",
-        "testing core functionalities: 2025-08-30 01:22:01",
-        "testing core functionalities again: 2025-08-30 01:25:10",
-        "first test for uuid identifers for tasks: 2025-08-30 01:39:36; 0700a4a9-69fe-4f2c-a537-8546e5d09d0b",
-        "reformatted memory.json also second test for new uuid : 2025-08-30 01:42:13; 115a5116-1f27-483a-84a6-19b89d1c2353",
-        "2025-08-30 01:43:19 : 4e600495-9d36-46a3-a149-c7f386099572 ; test 3 for reformatted memory.json aswell as uuid ",
-        "2025-08-30 01:46:05 : e381b059-a7b3-44a1-a97b-5405558fc310 ; test1 uuid",
-        "2025-08-30 01:46:10 : 4c508f60-2418-4f9a-81de-7d0859b2a425 ; test2 uuid",
-        "2025-08-30 01:50:52 : 7bcbf7d0-5205-48d8-99ee-718b2d187327 ; testing view function after new memory split",
-        "2025-08-30 01:52:16 : 2c4f7a41-7b42-4a08-8845-ed199baaf178 ; view fucntion test 2 after memoery reformat",
-        "2025-08-30 01:55:17 : b5918acc-a39b-4362-922c-d18391d4f699 ; finished up new view formatted function for memory format",
-        "2025-08-30 02:51:25 : 2760fc24-eebe-424a-9bcd-17ab17a0fc67 ; doing hw",
-        "2025-08-30 03:34:04 : 9c21b475-616f-455e-bda2-ce52d8c50411 ; testing quirk issue with view function; test1",
-        "2025-08-30 03:56:15 : 4b17fc58-49d4-47da-ac01-9e070dd7b7a4 ; ",
-        "2025-08-30 03:56:27 : 711f8c8b-e0f3-44e0-99a9-e973752c0d09 ; testing remove function"
+        "2025-08-31 04:13:35 : 5c5a12df-0529-4e34-8422-d0bd955948dc ; test 6",
+        "2025-08-31 04:14:11 : 9a72b024-f795-4995-b4f5-c0ddf4293480 ; added an update memory function",
+        "2025-08-31 04:14:32 : 7dd8252a-4745-460e-974d-83827e24c370 ; thought of a santitising function structure ",
+        "2025-08-31 04:14:46 : f6b1f109-32b4-4564-a045-6b1268303448 ; testing remove interactions rq",
+        "2025-08-31 05:20:41 : 93082e77-4a17-42ae-ae90-f762dbaad901 ; testing ; quirks again and :",
+        "2025-08-31 05:21:02 : ac33cda7-e302-40ef-ba09-74363c1bd654 ; ;"
     ],
     "unfinished": [
-        " add a remove function : 2025-08-24 01:05:10",
-        "add uuid for remove functions: 2025-08-24 01:13:15",
-        "remove some work from check_task: 2025-08-24 01:13:15",
-        "add a checker for seeing if i put 1 string instead of 2 (ie done and not putting anything after): 2025-08-24 01:45:40"
+        "2025-09-01 03:29:24 : 40853283-41c0-407d-87a2-15a3c8419aef ; reformat json memory and data structure into dictionaries for easier sanitsiation aswell as mangment for rmove and update function"
     ],
     "pending": [
-        "add a view function to the to do list: 2025-08-24 01:05:10",
-        "reformat memory.json for easier split functions (put date before task, aswell as adding a uuid afterwards thats seperated with a different seperator being \";\"): 2025-08-24 02:57:48",
-        "2025-08-30 01:53:16 : ebaf2821-8605-4f55-a284-5d3348e8c8cb ; ",
-        "2025-08-30 01:53:23 : 0183614c-6202-499b-909c-1e34677e8ca5 ; testing new view function"
+        "2025-09-01 02:59:55 : f2cdea4c-4574-4a2c-bf46-e101f6b5f3cb ; ",
+        "2025-09-01 03:00:10 : 9b4209ac-91f4-495a-af94-cfe660b703aa ; implementing a new sanitising thingi so far i have: splitting into 3, checking for uuid"
     ]
 }
