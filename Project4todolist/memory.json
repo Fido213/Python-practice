@@ -1,17 +1,113 @@
 {
-    "done": [
-        "2025-08-31 04:13:35 : 5c5a12df-0529-4e34-8422-d0bd955948dc ; test 6",
-        "2025-08-31 04:14:11 : 9a72b024-f795-4995-b4f5-c0ddf4293480 ; added an update memory function",
-        "2025-08-31 04:14:32 : 7dd8252a-4745-460e-974d-83827e24c370 ; thought of a santitising function structure ",
-        "2025-08-31 04:14:46 : f6b1f109-32b4-4564-a045-6b1268303448 ; testing remove interactions rq",
-        "2025-08-31 05:20:41 : 93082e77-4a17-42ae-ae90-f762dbaad901 ; testing ; quirks again and :",
-        "2025-08-31 05:21:02 : ac33cda7-e302-40ef-ba09-74363c1bd654 ; ;"
-    ],
-    "unfinished": [
-        "2025-09-01 03:29:24 : 40853283-41c0-407d-87a2-15a3c8419aef ; reformat json memory and data structure into dictionaries for easier sanitsiation aswell as mangment for rmove and update function"
-    ],
-    "pending": [
-        "2025-09-01 02:59:55 : f2cdea4c-4574-4a2c-bf46-e101f6b5f3cb ; ",
-        "2025-09-01 03:00:10 : 9b4209ac-91f4-495a-af94-cfe660b703aa ; implementing a new sanitising thingi so far i have: splitting into 3, checking for uuid"
-    ]
+    "done": {
+        "4d94f6da-e41e-428e-ab8a-a611c3c29125": {
+            "UUID": "4d94f6da-e41e-428e-ab8a-a611c3c29125",
+            "Date": "2025-09-02 02:17:31",
+            "Task": "test 4 new format and add function"
+        },
+        "7a14e06d-a8a3-4531-87c4-ac5a041c3c62": {
+            "UUID": "7a14e06d-a8a3-4531-87c4-ac5a041c3c62",
+            "Date": "2025-09-02 02:30:20",
+            "Task": "centrelised code by making a dictionary in one function making it shared across the whole code"
+        },
+        "0f9d8565-9e72-4216-853e-2709ee3b41d1": {
+            "UUID": "0f9d8565-9e72-4216-853e-2709ee3b41d1",
+            "Date": "2025-09-02 02:59:43",
+            "Task": "finished updating new view function"
+        },
+        "29bdc8f3-393c-4e44-94ae-04cd702c3ece": {
+            "UUID": "29bdc8f3-393c-4e44-94ae-04cd702c3ece",
+            "Date": "2025-09-02 02:59:51",
+            "Task": "test 1 for new view function"
+        },
+        "0e8ce001-aa05-4679-b4ef-b332c8a83286": {
+            "UUID": "0e8ce001-aa05-4679-b4ef-b332c8a83286",
+            "Date": "2025-09-02 03:00:39",
+            "Task": "test2 view function"
+        },
+        "24ebcbf2-8d4e-459c-8efc-db78bdc31502": {
+            "UUID": "24ebcbf2-8d4e-459c-8efc-db78bdc31502",
+            "Date": "2025-09-02 03:04:33",
+            "Task": "testing if no tasks added check in view function"
+        },
+        "8f0adf2a-d1c5-4cc1-9202-8b0f979f4a13": {
+            "UUID": "8f0adf2a-d1c5-4cc1-9202-8b0f979f4a13",
+            "Date": "2025-09-02 03:04:57",
+            "Task": "finished view function for new  format, included a new check for if there are no tasks in list"
+        },
+        "0e59a94f-c115-4d98-ac38-62a2511be043": {
+            "UUID": "0e59a94f-c115-4d98-ac38-62a2511be043",
+            "Date": "2025-09-02 03:13:20",
+            "Task": "finished reformatting for dictionary format for the remove function"
+        },
+        "ec6888f5-42f4-4349-aac0-393cc8185084": {
+            "UUID": "ec6888f5-42f4-4349-aac0-393cc8185084",
+            "Date": "2025-09-02 03:16:15",
+            "Task": "have a check for when writing \"status\" and \"\" nothing after"
+        },
+        "8c72ce48-01f0-4c36-9692-6cee7728c739": {
+            "UUID": "8c72ce48-01f0-4c36-9692-6cee7728c739",
+            "Date": "2025-09-02 03:22:38",
+            "Task": "added failsafe for spaces and nothing in user input for the add function"
+        },
+        "6b0d32c0-aa6b-409f-a6bf-ac99dc3ae944": {
+            "UUID": "6b0d32c0-aa6b-409f-a6bf-ac99dc3ae944",
+            "Date": "2025-09-02 03:34:12",
+            "Task": "testing new remove function with questionary rather than inquireror, aswell as utilising a highlight option"
+        },
+        "43716ba3-07df-48ed-b070-ddd71b88f1ad": {
+            "UUID": "43716ba3-07df-48ed-b070-ddd71b88f1ad",
+            "Date": "2025-09-02 03:38:23",
+            "Task": "test 2 for remove function"
+        },
+        "51aa9db9-c581-43e1-b081-b77a48b7b45e": {
+            "UUID": "51aa9db9-c581-43e1-b081-b77a48b7b45e",
+            "Date": "2025-09-02 03:43:27",
+            "Task": "testing fourth time for highlight since remove actually works (not removing but showing the items and not bugging the fuck out)"
+        },
+        "40b979d0-60f3-4db4-96b6-849774ffeb8d": {
+            "UUID": "40b979d0-60f3-4db4-96b6-849774ffeb8d",
+            "Date": "2025-09-02 04:02:59",
+            "Task": "fixing up highlights in remove function, had to add style from the other library"
+        },
+        "601b9bc0-a0a4-4b15-9c42-fc7581dc8924": {
+            "UUID": "601b9bc0-a0a4-4b15-9c42-fc7581dc8924",
+            "Date": "2025-09-02 04:03:31",
+            "Task": "fixed highlight for remove function, remove function is now well and works perfeclty"
+        },
+        "629bc9f9-55a3-42b4-80c8-34a711872bf9": {
+            "UUID": "629bc9f9-55a3-42b4-80c8-34a711872bf9",
+            "Date": "2025-09-02 04:08:25",
+            "Task": "testing if i can have the same task twice"
+        },
+        "69a05820-0a98-42ae-932e-ec9b612606b7": {
+            "UUID": "69a05820-0a98-42ae-932e-ec9b612606b7",
+            "Date": "2025-09-02 04:08:32",
+            "Task": "testing if i can have the same task twice"
+        }
+    },
+    "unfinished": {
+        "47ab0f0b-4e21-4793-8990-2cef9229c4d4": {
+            "UUID": "47ab0f0b-4e21-4793-8990-2cef9229c4d4",
+            "Date": "2025-09-02 04:09:19",
+            "Task": "sanitise function for duplicates"
+        }
+    },
+    "pending": {
+        "162c1edf-27e8-4574-ac9c-14fa8f194694": {
+            "UUID": "162c1edf-27e8-4574-ac9c-14fa8f194694",
+            "Date": "2025-09-02 02:30:53",
+            "Task": "have to fix view function and remove function with actual remove capabilities "
+        },
+        "46ce6fb7-0557-48e4-a9b2-f19d7909c132": {
+            "UUID": "46ce6fb7-0557-48e4-a9b2-f19d7909c132",
+            "Date": "2025-09-02 03:05:18",
+            "Task": "fixing remove function to actually remove"
+        },
+        "910c6bf4-d9f9-47b9-a6a7-214b929d9841": {
+            "UUID": "910c6bf4-d9f9-47b9-a6a7-214b929d9841",
+            "Date": "2025-09-02 03:15:57",
+            "Task": "seeing questionary capabilities and replacing for inquireror"
+        }
+    }
 }

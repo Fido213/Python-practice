@@ -1,63 +1,22 @@
 import json
 import uuid
 from datetime import datetime
-import inquirer
+import questionary
+from prompt_toolkit.styles import Style  # this is for styling prompts
 
 
-status = {
-    "done": [],
-    "unfinished": [],
-    "pending": [],
+def start_dictionary():
+    # this function is purely as a failsafe to restart and update
+    # the dictionary format
+    status = {
+        "done": {},
+        "unfinished": {},
+        "pending": {},
     }
-# This is a dictionary, the key is the status and its value is a list in which
-# tasks will be appended to
-
-
-def split_three(task):
-    stripped_task = task.strip()
-    indexsemi = stripped_task.find(";")
-    indexcolon = stripped_task.find(":")
-    if indexsemi > indexcolon:
-        first_section = stripped_task[:indexcolon-1].strip()
-        middle_section = stripped_task[indexcolon+1:indexsemi].strip()
-        third_section = stripped_task[indexsemi+1:].strip()
-        list_all_sections = [first_section, middle_section, third_section]
-        print(list_all_sections)
-        return list_all_sections
-    elif indexcolon > indexsemi:
-        first_section = stripped_task[:indexsemi-1].strip()
-        middle_section = stripped_task[indexsemi+1:indexcolon].strip()
-        third_section = stripped_task[indexcolon+1:].strip()
-        list_all_sections = [first_section, middle_section, third_section]
-        print(list_all_sections)
-        return list_all_sections
-
-
-def uuid_check(list_string):
-    for task in list_string:
-        print(task)
-        if len(task) == 36:
-            try:
-                uuid.UUID(task)
-                print("is uuid")
-                uuid_in_list = task
-                return uuid_in_list
-            except ValueError:
-                print("its not uuid")
-        else:
-            print("not uuid")
-
-
-def sanitise():
-    for task in status["done"]:
-        list_all_sections = split_three(task)
-        uuid_check(list_all_sections)
-    for task in status["pending"]:
-        list_all_sections = split_three(task)
-        uuid_check(list_all_sections)
-    for task in status["unfinished"]:
-        list_all_sections = split_three(task)
-        uuid_check(list_all_sections)
+    # This is a dictionary, the key is the status
+    # its value is a another set of nested dictionaries
+    # containing uuid, date and task as strings to the keys
+    return status
 
 
 def read_memory():
@@ -71,12 +30,9 @@ def read_memory():
             # then we run a if not check, if the file is empty
             # it will be true, if not, it will continue to the else statement
             if not memory_check:
+                print("\n System:")
                 print("File is empty")
-                status = {
-                    "done": [],
-                    "unfinished": [],
-                    "pending": []
-                }
+                status = start_dictionary()
                 # if the file is empty, create a new dictionary with empty
                 # lists for each status
                 return status
@@ -96,12 +52,9 @@ def read_memory():
                 # dictionary
                 return status
     except (FileNotFoundError, json.JSONDecodeError):
+        print("\n System:")
         print("Memory file not found/Error decoding it, creating a new one.")
-        status = {
-            "done": [],
-            "unfinished": [],
-            "pending": []
-        }
+        status = start_dictionary()
         return status
         # if the file is not found, create a new dictionary
 
@@ -120,20 +73,46 @@ def update_memory(data):
         # indent 4 is to make it human readable
 
 
+# def reverse_map(task):
+
+
+def sanitise_function():
+    # this function is for clearing out bad data
+    status = read_memory()
+    seen_tasks = set()
+    for status_verification in status:
+        for task_dictionary in status[status_verification].values():
+            task_to_compare = task_dictionary.get("Task").strip()
+            if task_to_compare in seen_tasks:
+                print("\n System:")
+                print(f"'{task_to_compare}' in '{status_verification}' is a duplicate, deleting...")
+            else:
+                seen_tasks.add(task_to_compare)
+                print("\n System:")
+                print("Stable")
+
+
 def get_user_input():
-    # this function is only used for the "add" functionality
-    userinput = input("Enter status and task name in order: ")
-    # get the user input and then split it into status and task name
-    split_input = userinput.split(" ", 1)
-    print(split_input)
-    # assign a variable to the status
-    status_input = split_input[0].lower()  # convert the status to lowercase
-    task_inputsplit = split_input[1:]  # assign a variable to the task
-    # the 1: is like in excel where u select a range of cells from a
-    # certain index
-    task_input = ' '.join(task_inputsplit)   # join the list into a string
-    # simplifies the task name aswell as going from list to string
-    return status_input, task_input  # return the status and task input
+    while True:
+        # this function is only used for the "add" functionality
+        userinput = input("Enter status and task name in order: ")
+        # get the user input and then split it into status and task name
+        try:
+            split_input = userinput.split(" ", 1)
+            print(split_input)
+            # assign a variable to the status
+            status_input = split_input[0].lower()  # convert the status to lowercase
+            task_inputsplit = split_input[1:]  # assign a variable to the task
+            # the 1: is like in excel where u select a range of cells from a
+            # certain index
+            task_input = ' '.join(task_inputsplit)   # join the list into a string
+            if not task_input:
+                print("Put a task after the status")
+            else:
+                return status_input, task_input  # return the status and task input
+        except (TypeError):
+            print("Can't add non-iterable object (such as nothing)")
+            break
 
 
 def add_task(INPstatus, task_input):
@@ -142,16 +121,20 @@ def add_task(INPstatus, task_input):
     if INPstatus in status:
         unique_id = str(uuid.uuid4())
         current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        task_to_add = {
+            "UUID": unique_id,
+            "Date": current_date,
+            "Task": task_input
+        }
+        # since the new format is dictionaries inside dictionaries
+        # ill have to add a new key, same with the append function
+        # ill add a new key (inside the dictionary) and its valuew would be
+        # task_to_add
         # generate a unique id for the task using uuid4
-        status[INPstatus].append(current_date
-                                 + " : " + unique_id
-                                 + " ; " + task_input)
-        # append the task to the list of the status
+        status[INPstatus][unique_id] = task_to_add
         # INP status is the paramater that is passed to the function,
         # the INPstatus is the status_input that is passed to the function
         # if INPStatus is found in the dictionary status,
-        # the task input is then appended to the list of the
-        # corresponding status
         # datetime.now().strftime is used to format the date and time
         # to a more human readable format
         update_memory(status)
@@ -170,13 +153,29 @@ def view_tasks():
         # get the user input and convert it to lowercase
         if status_input in status:
             print(f"\n Tasks in '{status_input}' list:")
-            for task in status[status_input]:
-                print(f"- {';'.join(task.split(';')[1:])}")  # Print only the part after the
-                # ; the [1:] is an index to get only the second part of the split
-                # string (via the .split function and precising that its split
-                # from the ";")
-                # i also use a for loop to loop through all the tasks, and the
-                # print function makes it so that its a new line for each task
+            if not status[status_input]:
+                print(f"No tasks in {status_input}")
+            else:
+                for task_overview in status[status_input].values():
+                    # the .values makes it so i can see an overview of the
+                    # dictionary
+                    # since status[status_input] = dictionary, python goes to
+                    # the dictionary
+                    # then inside the dictionary it shows an overview, since
+                    # inside the dictionary is just {uuid{task data}}, the
+                    # .values makes it
+                    # so i see only {task data} (since tatus[status_input] =
+                    # dictionary
+                    # , that means when i type status[done], i get the
+                    # dictionary then
+                    # i can call .values to get only the values of the
+                    # dictionary which
+                    # is the task data), i would then use .get to get a value
+                    # from a key
+                    # which is task, and assign it to a variable, so i can then
+                    #  print it
+                    task_to_view = task_overview.get("Task", "Couldnt find task")
+                    print(f"- {task_to_view}")
         elif status_input == 'exit':
             print("Exiting view tasks.")
             break
@@ -192,24 +191,37 @@ def remove_task():
     # get the user input and convert it to lowercase
 
     if status_input in status:
-        print(f"\n Pick a task to remove from '{status_input}' list:")
-        orderedlist = []
-        for task in status[status_input]:
-            if ";" in task:
-                orderedlist.append(";".join(task.split(';')[1:]))
-            else:
-                orderedlist.append(task)
-        tasks = [
-            inquirer.List(
-                'taskstodelete',
-                choices=orderedlist
-            )
-        ]
-        taskconfirmed = inquirer.prompt(tasks)['taskstodelete']
-        print(f"Removing task: {taskconfirmed}")
+        if not status[status_input]:
+                print(f"No tasks in {status_input}")
+        else:
+            print(f"\n Pick a task to remove from '{status_input}' list:")
+            list_to_show = []
+            # creates an empty list to get all the choices from our
+            # for loop which goes through each dictionary value (through .values)
+            # and gets the value of the key task, which then appends it to the list
+            # this makes it easy for me to do a questionary.select with the choices
+            # as the variable which is a list, then i do default=list_to_show[0]
+            # to make it so that the first task is highlighted
+            # i also add a failcheck for if they dont contain anything so it wont
+            # highlight, i also seperated options and answers, so options
+            # only contains the actual select list whilst answers
+            # contains the .ask(), this allows me to change the questions
+            # whilst keeping the core code intact
+            for task_overview in status[status_input].values():
+                task_to_Show = task_overview.get("Task", "Couldnt find task")
+                list_to_show.append(task_to_Show)
+            custom_style = Style([
+                 ("qmark", "fg:#ff9d00 bold"),  # question mark colour
+                 (("pointer", "fg:#000000")),  # pointer colour
+                 ("highlighted", "bg:#ffffff fg:#000000"),  # highlight color
+                    ])
+            options = questionary.select("Choose a task:",
+                                         choices=list_to_show,
+                                         style=custom_style)
+            answer = options.ask()
+            print(f"Removing task: {answer}")
     elif status_input == 'exit':
         print("Exiting remove tasks.")
-
 
 
 def terminal_interface():
@@ -219,11 +231,11 @@ def terminal_interface():
 
 # Main program loop
 while True:
-    sanitise()
     print("\n ----- Todo List Terminal Interface -----"
           "\nYou can add tasks with 'add', view tasks with 'view', "
           "remove tasks with 'remove', update tasks with 'update' "
           "or exit with 'exit'.")
+    sanitise_function()
     # loop to allow the user to enter multiple tasks (debug too)
     user_input = terminal_interface()
     # get the user input and assign it to the user_input variable
