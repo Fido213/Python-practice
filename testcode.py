@@ -3,39 +3,41 @@ import uuid
 from datetime import datetime
 import inquirer
 import questionary
-
-test_string_correct = "ac33cda7-e302-40ef-ba09-74363c1bd654 : random taskabcdferoinerhakfaslielddd ; date"
-test_string_not_correct_order = "random task : uuid ; date"
-test_string_not_correct_order_colonsincluded = "random task ; uuid : date"
-colours = ["Red", "Green", "Blue"]
-answer = questionary.select(
-    "Choose a color:",
-    choices=colours,
-    default=colours[0]  # highlight starts here
-).ask()
-
+from prompt_toolkit.styles import Style  # this is for styling prompts
 
 status = {
-    "done": {
-        "uuid": {
-            "randomuuid": "actualuuid",
-            "date": "random date",
-            "task": "actual task",
-        },
-        "uuid2": {
-            "randomuuid": "actualuuid",
-            "date": "random date",
-            "task": "actual task"
-        }
-    }
+    "done": {},
+    "unfinished":{},
+    "pending":{}
 }
+sample_task = {"uuid": "uuid",
+               "date": "date",
+               "task": "task"}
 
-choices = ["Task A", "Task B", "Task C"]
+custom_style = Style([
+                 ("qmark", "fg:#ff9d00 bold"),  # question mark colour
+                 (("pointer", "fg:#000000")),  # pointer colour
+                 ("highlighted", "bg:#ffffff fg:#000000"),  # highlight color
+                    ])
 
-answer = questionary.select(
-    "Choose a task:",
-    choices=choices,
-    default=choices[0]
-).ask()
+status_asked = input("pick a status ")
+def user_input():
+    choices = set(status.keys())
+    if status_asked in choices:
+        choices.remove(status_asked)
+    status_input = questionary.select("Choose a status:",
+        choices=choices,
+        style=custom_style
+    )
+    answer = status_input.ask()
+    task_input = input("Input task")
+    return answer, task_input
 
-print("You chose:", answer)
+
+def add():
+    answer, task_input = user_input()
+    status[answer][uuid.uuid4()] = task_input
+
+
+add()
+print(status)
