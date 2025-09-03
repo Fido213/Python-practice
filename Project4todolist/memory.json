@@ -14,6 +14,11 @@
             "UUID": "3b4db399-b4d5-4e8a-b30b-2e24776444eb",
             "Date": "2025-09-03 04:28:55",
             "Task": "Finished adding all the main task functions, now onto code quality and optimisations, features is on pause for now:"
+        },
+        "bda4e426-656b-42fc-bbf0-42f95d7568b9": {
+            "UUID": "bda4e426-656b-42fc-bbf0-42f95d7568b9",
+            "Date": "2025-09-03 17:26:06",
+            "Task": "go to gym"
         }
     },
     "pending": {},
@@ -32,6 +37,11 @@
             "UUID": "113fed4b-ffdb-41a0-ad0e-d4869c0855fd",
             "Date": "2025-09-03 04:39:31",
             "Task": "- `reverse_memory_read()` exception branch calls `initialise_reverse_map()` but does not return the new map (may return None)"
+        },
+        "2232a238-852a-4d2d-9e67-9512462215d9": {
+            "UUID": "2232a238-852a-4d2d-9e67-9512462215d9",
+            "Date": "2025-09-03 21:19:18",
+            "Task": "adding a duplicate"
         }
     }
 }

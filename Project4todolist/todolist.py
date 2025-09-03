@@ -10,6 +10,7 @@ custom_style = Style([
                  (("pointer", "fg:#000000")),  # pointer colour
                  ("highlighted", "bg:#ffffff fg:#000000"),  # highlight color
                     ])
+reverse_memory_Cache = {}  # global caching place, deletes on exit
 
 
 def start_dictionary():
@@ -133,6 +134,17 @@ def reverse_memory_read():
         return reverse_map
 
 
+def reverse_memory_cache():
+    global reverse_memory_Cache
+    reverse_map = reverse_memory_read()
+    for reverse_cache_keys, reverse_cache_values in reverse_map.items():
+        reverse_memory_Cache[reverse_cache_keys] = reverse_cache_values
+
+
+def update_reverse_memory_cache(task, uuidvalue):
+    reverse_memory_Cache[task] = uuidvalue
+
+
 def sanitise_function():
     # this function is for clearing out bad data
     status, _ = read_memory()
@@ -149,7 +161,7 @@ def sanitise_function():
             task_to_compare = task_dictionary.get("Task").strip()
             if task_to_compare in seen_tasks:
                 print("\n System:")
-                print(f"'{task_to_compare}' in '{status_verification}' is a duplicate, deleting...")
+                print(f"'{task_to_compare}' in '{status_verification}' is a duplicate, deleting...\n")
                 duplicate = True
                 reverse_uuid = reverse_map[task_to_compare]  # reverse mapping
                 # i get the uuid by going to the reverse map dictionary, and since
@@ -171,7 +183,7 @@ def sanitise_function():
                 print("\n System:")
                 print("Error deleting/finding the uuid and task.")
     update_memory(status)
-    initialise_reverse_map()
+    
 
 
 def get_user_input():
@@ -293,16 +305,21 @@ def remove_task():
                                              choices=list_to_show,
                                              style=custom_style)
                 answer = options.ask()
-                print(f"Removing task: {answer}")
+                confimration = input("Are you sure? Y/N ").upper()
+                if confimration == "Y":
+                    try:
+                        reverse_uuid = reverse_map[answer]
+                        del status[status_input][reverse_uuid]
+                        update_memory(status)
+                        print(f"Removing task: {answer}")
+                    except (KeyError):
+                        print("\n System: \n Error deleting/finding the uuid and task.")
+                else:
+                    print("\n System: \nCanceling deletion")
+                    break
                 if answer is None:
                     print("\n System: \n exiting task deletion.")
                     break
-                try:
-                    reverse_uuid = reverse_map[answer]
-                    del status[status_input][reverse_uuid]
-                    update_memory(status)
-                except (KeyError):
-                    print("\n System: \n Error deleting/finding the uuid and task.")
         elif status_input is None:
             print("\n System: \n exiting task deletion.")
             break
@@ -349,7 +366,11 @@ def update_task():
                     style=custom_style
                 )
                 update_answer = tasks_choices.ask()
-                reverse_uuid = reverse_map[update_answer]  # get the mapped uuid
+                try:
+                    reverse_uuid = reverse_map[update_answer]  # get the mapped uuid
+                except (KeyError):
+                    "Cancelling update"
+                    break
                 if status_input in status_to_show:
                     status_to_show.remove(status_input)
                 status_to_go = questionary.select(
@@ -385,6 +406,7 @@ def terminal_interface():
 
 
 # Main program loop
+initialise_reverse_map()
 while True:
     print("\n ----- Todo List Terminal Interface -----"
           "\nYou can add tasks with 'add', view tasks with 'view', "
