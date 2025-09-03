@@ -130,6 +130,7 @@ def reverse_memory_read():
         print("\n System:")
         print("Error opening reverse map. initialising new one")
         initialise_reverse_map()
+        return reverse_map
 
 
 def sanitise_function():
