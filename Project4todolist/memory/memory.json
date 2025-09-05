@@ -1,0 +1,21 @@
+{
+    "finished": {
+        "79d0d981-f953-4086-ac64-adfff02410f3": {
+            "UUID": "79d0d981-f953-4086-ac64-adfff02410f3",
+            "Date": "2025-09-05 23:32:06",
+            "Task": "tested failsafe 2"
+        },
+        "383dc6e2-a780-4405-a8f4-f8a8df129213": {
+            "UUID": "383dc6e2-a780-4405-a8f4-f8a8df129213",
+            "Date": "2025-09-05 23:32:46",
+            "Task": "duplicate"
+        },
+        "d6baf43c-a55e-4aa6-a669-024859a02821": {
+            "UUID": "d6baf43c-a55e-4aa6-a669-024859a02821",
+            "Date": "2025-09-05 23:33:27",
+            "Task": "testing paths"
+        }
+    },
+    "pending": {},
+    "unfinished": {}
+}

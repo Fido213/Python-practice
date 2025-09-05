@@ -3,6 +3,7 @@ import uuid
 from datetime import datetime
 import questionary
 from prompt_toolkit.styles import Style  # this is for styling prompts
+import os
 
 # custom style for usage throughout the code
 custom_style = Style([
@@ -16,6 +17,7 @@ reverse_memory_Cache = {}  # global caching place, deletes on exit
 def start_dictionary():
     # this function is purely as a failsafe to restart and update
     # the dictionary format
+    # this also servers as a cache
     status = {
         "finished": {},
         "pending": {},
@@ -134,7 +136,7 @@ def reverse_memory_read():
         return reverse_map
 
 
-def reverse_memory_cache():
+def initialise_reverse_memory_cache():
     global reverse_memory_Cache
     reverse_map = reverse_memory_read()
     for reverse_cache_keys, reverse_cache_values in reverse_map.items():
@@ -145,6 +147,11 @@ def update_reverse_memory_cache(task, uuidvalue):
     reverse_memory_Cache[task] = uuidvalue
 
 
+def read_reverse_memory_cache(task):
+    reverse_uuid = reverse_memory_Cache.get(task)
+    return reverse_uuid
+
+
 def sanitise_function():
     # this function is for clearing out bad data
     status, _ = read_memory()
@@ -152,7 +159,6 @@ def sanitise_function():
     tasks_to_delete = []
     # since i cant update and delete at runtime, it gives an error
     # so i assign it to a list and then delete it at the end of the loop
-    reverse_map = reverse_memory_read()
     # ill add a check to see if theres any duplicates
     # to print the "stable" in the else
     duplicate = False  # this is to check later to print stable or not
@@ -163,7 +169,7 @@ def sanitise_function():
                 print("\n System:")
                 print(f"'{task_to_compare}' in '{status_verification}' is a duplicate, deleting...\n")
                 duplicate = True
-                reverse_uuid = reverse_map[task_to_compare]  # reverse mapping
+                reverse_uuid = read_reverse_memory_cache(task_to_compare)  # reverse mapping
                 # i get the uuid by going to the reverse map dictionary, and since
                 # tasks are the keys and the values uuid, i can just input the task_tocompare
                 # since ill get the uuid value from that key
@@ -183,7 +189,6 @@ def sanitise_function():
                 print("\n System:")
                 print("Error deleting/finding the uuid and task.")
     update_memory(status)
-    
 
 
 def get_user_input():
@@ -197,11 +202,20 @@ def get_user_input():
                                             style=custom_style
                                             )
         status_input = status_choices.ask()
+        if status_input is None:
+            print("\n System: \n Exiting add task.")
+            break
         try:
             task_input = input("Input task ")
-            return status_input, task_input
-        except (TypeError):
-            print("Can't add non-iterable object (such as nothing)")
+            if not task_input:
+                print("Please add a valid task not an empty string")
+            else:
+                return status_input, task_input
+        except KeyboardInterrupt:
+            print("\n System: \n Exiting add task.")
+            break
+        except Exception as e:
+            print(f"An unexpected error occured '{e}'")
             break
 
 
@@ -228,6 +242,7 @@ def add_task(INPstatus, task_input):
         # datetime.now().strftime is used to format the date and time
         # to a more human readable format
         update_memory(status)
+        update_reverse_memory_cache(task_input, unique_id)
         print(f"Task '{task_input}' added to '{INPstatus}' list at {datetime.now()}.")
         # print(f"Current '{INPstatus}' list: {status[INPstatus]}")
         # this is used for debugging purposes
@@ -275,7 +290,6 @@ def view_tasks():
 
 def remove_task():
     status, _ = read_memory()  # get memory from read_memory function
-    reverse_map = reverse_memory_read()
     # get the user input and convert it to lowercase
     while True:
         status_input = questionary.select("\n Select status to delete task from (finished, unfinished, pending)"
@@ -305,10 +319,13 @@ def remove_task():
                                              choices=list_to_show,
                                              style=custom_style)
                 answer = options.ask()
+                if answer is None:
+                    print("\n System: \n exiting task deletion.")
+                    break
                 confimration = input("Are you sure? Y/N ").upper()
                 if confimration == "Y":
                     try:
-                        reverse_uuid = reverse_map[answer]
+                        reverse_uuid = read_reverse_memory_cache(answer)
                         del status[status_input][reverse_uuid]
                         update_memory(status)
                         print(f"Removing task: {answer}")
@@ -327,7 +344,6 @@ def remove_task():
 
 def update_task():
     status, _ = read_memory()
-    reverse_map = reverse_memory_read()
     tasks_to_update = []
     status_to_show = set(status.keys())
     while True:
@@ -367,7 +383,8 @@ def update_task():
                 )
                 update_answer = tasks_choices.ask()
                 try:
-                    reverse_uuid = reverse_map[update_answer]  # get the mapped uuid
+                    reverse_uuid = read_reverse_memory_cache(update_answer)
+                    # get the mapped uuid from cache
                 except (KeyError):
                     "Cancelling update"
                     break
@@ -407,6 +424,7 @@ def terminal_interface():
 
 # Main program loop
 initialise_reverse_map()
+initialise_reverse_memory_cache()
 while True:
     print("\n ----- Todo List Terminal Interface -----"
           "\nYou can add tasks with 'add', view tasks with 'view', "
@@ -418,11 +436,15 @@ while True:
     # get the user input and assign it to the user_input variable
     if user_input == 'exit':
         print("Exiting the todo list terminal interface.")
+        update_memory_reverse(reverse_memory_Cache)
         break
     elif user_input == 'add':
-        status_input, task_input = get_user_input()
-        # get the user input and assign it to the status_input and task_input
-        add_task(status_input, task_input)
+        try:
+            status_input, task_input = get_user_input()
+            # get the user input and assign it to the status_input and task_input
+            add_task(status_input, task_input)
+        except Exception:
+            print("\n... success.")
     elif user_input == 'view':
         view_tasks()
     elif user_input == 'remove':
@@ -431,4 +453,5 @@ while True:
         update_task()
     elif user_input is None:
         print("Exiting the todo list terminal interface.")
+        update_memory_reverse(reverse_memory_Cache)
         break
