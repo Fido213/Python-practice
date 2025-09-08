@@ -23,3 +23,17 @@ def terminal_interface():
     )
     user_input = user_choices.ask()
     return user_input
+
+
+def system_message(message):
+    system_messages = {"error": "An error occurred. Please try again.",
+                       "duplicate": "The task already exists. Please add a different task.",
+                       "success": "Operation completed successfully.",
+                       "not_found": "Item not found.",
+                       "invalid": "Invalid status. Please enter 'finished', 'unfinished', or 'pending'.",
+                       "exit": "Exiting the todo list terminal interface.",
+                       "delete error": "Error deleting/finding the uuid and task.",
+                       "no character": "Please add a valid task not an empty string"
+                       }
+    print("\n System:")
+    return system_messages.get(message.lower(), "Unknown system message.")

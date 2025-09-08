@@ -111,7 +111,8 @@ def sanitise_function():
                 print("\n System:")
                 print(f"'{task_to_compare}' in '{status_verification}' is a duplicate, deleting...\n")
                 duplicate = True
-                reverse_uuid = reverse_memory_family.read_reverse_memory_cache(task_to_compare)  # reverse mapping
+                reverse_dictionary = reverse_memory_family.reverse_memory_read()  # reverse mapping
+                reverse_uuid = reverse_dictionary.get(task_to_compare)
                 # i get the uuid by going to the reverse map dictionary, and since
                 # tasks are the keys and the values uuid, i can just input the task_tocompare
                 # since ill get the uuid value from that key
@@ -126,7 +127,7 @@ def sanitise_function():
             # a tuple
             try:
                 del status[status_key][uuid_value]
-                update_memory(status)
+                print(f"Deleted task with UUID: {uuid_value} from '{status_key}'")
             except (KeyError):
                 print("\n System:")
                 print("Error deleting/finding the uuid and task.")

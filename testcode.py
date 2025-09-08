@@ -20,24 +20,10 @@ custom_style = Style([
                  ("highlighted", "bg:#ffffff fg:#000000"),  # highlight color
                     ])
 
-status_asked = input("pick a status ")
-def user_input():
-    choices = set(status.keys())
-    if status_asked in choices:
-        choices.remove(status_asked)
-    status_input = questionary.select("Choose a status:",
-        choices=choices,
-        style=custom_style
-    )
-    answer = status_input.ask()
-    task_input = input("Input task")
-    return answer, task_input
+dictionary = {"key": "value",
+              "key2": "value2",
+              "key2": "value3" }
 
-
-def add():
-    answer, task_input = user_input()
-    status[answer][uuid.uuid4()] = task_input
-
-
-add()
-print(status)
+print(dictionary)
+del dictionary["key2"]
+print(dictionary)

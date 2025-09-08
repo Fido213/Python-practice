@@ -3,6 +3,7 @@ from datetime import datetime
 import questionary
 import reverse_memory_family
 import memory_management_family
+import cli_interface
 from cli_interface import custom_style
 # this file contains the main features of the todo list terminal interface
 # such as adding, viewing, removing and updating tasks
@@ -25,15 +26,27 @@ def get_user_input():
         try:
             task_input = input("Input task ")
             if not task_input:
-                print("Please add a valid task not an empty string")
+                error_message = cli_interface.system_message("no character")
+                print(error_message)
             else:
                 return status_input, task_input
         except KeyboardInterrupt:
             print("\n System: \n Exiting add task.")
             break
         except Exception as e:
-            print(f"An unexpected error occured '{e}'")
+            error_message = cli_interface.system_message("error")
+            print(f"{error_message} '{e}'")
             break
+
+
+def check_task_exists(task):
+    status, _ = memory_management_family.read_memory()
+    for nested_status in status.values():
+        for task_overview in nested_status.values():
+            task_to_check = task_overview.get("Task", "")
+            if task == task_to_check:
+                return "Duplicate"
+    return "Unique"
 
 
 def add_task(INPstatus, task_input):
@@ -64,7 +77,8 @@ def add_task(INPstatus, task_input):
         # print(f"Current '{INPstatus}' list: {status[INPstatus]}")
         # this is used for debugging purposes
     else:
-        print("Invalid status. Please enter 'finished', 'unfinished', or 'pending'.")
+        error_message = cli_interface.system_message("invalid")
+        print(error_message)
 
 
 def view_tasks():
@@ -147,7 +161,8 @@ def remove_task():
                         memory_management_family.update_memory(status)
                         print(f"Removing task: {answer}")
                     except (KeyError):
-                        print("\n System: \n Error deleting/finding the uuid and task.")
+                        error_message = cli_interface.system_message("delete error")
+                        print(error_message)
                 else:
                     print("\n System: \nCanceling deletion")
                     break
@@ -161,7 +176,6 @@ def remove_task():
 
 def update_task():
     status, _ = memory_management_family.read_memory()
-    tasks_to_update = []
     status_to_show = set(status.keys())
     while True:
         status_input = questionary.select("\nSelect status to update (finished, unfinished, pending)"
@@ -173,6 +187,7 @@ def update_task():
             if not status[status_input]:  # quick check if its empty
                 print(f"No tasks in {status_input}")
             else:
+                tasks_to_update = []
                 for task_overview in status[status_input].values():
                     # the .values makes it so i can see an overview of the
                     # dictionary
@@ -221,7 +236,8 @@ def update_task():
                     status[status_to_go][reverse_uuid] = task_data_to_update
                     memory_management_family.update_memory(status)
                 except (KeyError):
-                    print("\n System: \n Error deleting/finding the uuid and task.")
+                    error_message = cli_interface.system_message("delete error")
+                    print(error_message)
                 break
         elif status_input is None:
             print("Exiting update tasks.")

@@ -7,6 +7,7 @@ import main_features as main
 # and reverse_memory_family modules
 
 # Main program loop
+mem.sanitise_function()
 rev.initialise_reverse_map()
 rev.initialise_reverse_memory_cache()
 while True:
@@ -14,7 +15,6 @@ while True:
           "\nYou can add tasks with 'add', view tasks with 'view', "
           "remove tasks with 'remove', update tasks with 'update' "
           "or exit with 'exit'.")
-    mem.sanitise_function()
     # loop to allow the user to enter multiple tasks (debug too)
     user_input = cli.terminal_interface()
     # get the user input and assign it to the user_input variable
@@ -25,10 +25,18 @@ while True:
     elif user_input == 'add':
         try:
             status_input, task_input = main.get_user_input()
-            # get the user input and assign it to the status_input and task_input
-            main.add_task(status_input, task_input)
-        except Exception:
-            print("\n... success.")
+            if main.check_task_exists(task_input.strip()) == "Duplicate":
+                error_message = cli.system_message("error")
+                print(error_message)
+                print(f"\n System:\n - The task '{task_input}' already exists. Please add a different task.\n")
+                continue
+            else:
+                try:
+                    main.add_task(status_input, task_input)
+                except Exception as e:
+                    print(f"\n... error {e}")
+        except Exception as e:
+            print(f"\n... error {e}")
     elif user_input == 'view':
         main.view_tasks()
     elif user_input == 'remove':

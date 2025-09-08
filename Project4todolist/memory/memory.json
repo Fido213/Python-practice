@@ -1,21 +1,27 @@
 {
     "finished": {
-        "79d0d981-f953-4086-ac64-adfff02410f3": {
-            "UUID": "79d0d981-f953-4086-ac64-adfff02410f3",
-            "Date": "2025-09-05 23:32:06",
-            "Task": "tested failsafe 2"
+        "8b63e76e-8155-4ca2-9249-8d140cf53465": {
+            "UUID": "8b63e76e-8155-4ca2-9249-8d140cf53465",
+            "Date": "2025-09-06 01:03:33",
+            "Task": "test"
         },
-        "383dc6e2-a780-4405-a8f4-f8a8df129213": {
-            "UUID": "383dc6e2-a780-4405-a8f4-f8a8df129213",
-            "Date": "2025-09-05 23:32:46",
-            "Task": "duplicate"
-        },
-        "d6baf43c-a55e-4aa6-a669-024859a02821": {
-            "UUID": "d6baf43c-a55e-4aa6-a669-024859a02821",
-            "Date": "2025-09-05 23:33:27",
-            "Task": "testing paths"
+        "83377d80-44c2-4ebf-8152-fffbe3a24fb6": {
+            "UUID": "83377d80-44c2-4ebf-8152-fffbe3a24fb6",
+            "Date": "2025-09-06 23:30:27",
+            "Task": "testing bi caching"
         }
     },
     "pending": {},
-    "unfinished": {}
+    "unfinished": {
+        "2Ge5664e-5c82-41ff-bf76-163095c1205b": {
+            "UUID": "2Ge5664e-5c82-41ff-bf76-163095c1205b",
+            "Date": "2025-09-06 23:07:34",
+            "Task": "testing"
+        },
+        "6fd07cbc-f506-40e7-bd94-9313902e9785": {
+            "UUID": "6fd07cbc-f506-40e7-bd94-9313902e9785",
+            "Date": "2025-09-08 23:56:25",
+            "Task": "teest"
+        }
+    }
 }
