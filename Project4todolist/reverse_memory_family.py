@@ -1,5 +1,7 @@
 import json
-import memory_management_family
+import os
+import memory_management_family  # needed for get_memory_path
+
 # this file contains functions for managing the reverse memory (json) files
 # such as reading and writing to them, as well as initialising
 # the reverse memory files if they do not exist
@@ -9,18 +11,16 @@ reverse_memory_Cache = {}  # global caching place, deletes on exit
 
 
 def update_memory_reverse(data):
-    reverseJSONmemory = memory_management_family.get_memory_path('reverse_memory.json')
-    with open(reverseJSONmemory, 'w') as file:
-        # write mode also creates the file if it does not exist
-        # so this basically sets up error avoidance and makes it up
-        # by creating the file later whilst reseting the dictionary
-        # sets a context manager to open the file in write mode
-        # (this also makes it so that it closes automatically)
-        # memory.json is saved as "file"
+    reverseJSONmemory = memory_management_family.get_memory_path("reverse_memory.json")
+    temp_file = reverseJSONmemory + ".tmp"
+    # Write to a temporary file
+    with open(temp_file, "w") as file:
         json.dump(data, file, indent=4)
-        # json.dump is used to basically takes the dictionary and writes
-        # it in json format in the file (memory.json)
-        # indent 4 is to make it human readable
+    try:
+        # Atomically replace the original file with the temporary file
+        os.replace(temp_file, reverseJSONmemory)
+    except PermissionError:
+        print("\n System:\n - Permission error while updating reverse memory file.\n")
 
 
 def initialise_reverse_map():
@@ -48,9 +48,9 @@ def initialise_reverse_map():
 
 
 def reverse_memory_read():
-    reverseJSONmemory = memory_management_family.get_memory_path('reverse_memory.json')
+    reverseJSONmemory = memory_management_family.get_memory_path("reverse_memory.json")
     try:
-        with open(reverseJSONmemory, 'r') as file:
+        with open(reverseJSONmemory, "r") as file:
             # set a context manager to open the file in read mode
             reverse_map = json.load(file)
             return reverse_map

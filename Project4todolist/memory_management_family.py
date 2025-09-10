@@ -1,6 +1,7 @@
 import os
 import json
 import reverse_memory_family
+
 # this file contains functions for managing the memory (json) files
 # such as reading and writing to them, as well as initialising
 # the memory files if they do not exist
@@ -15,7 +16,7 @@ def get_memory_path(filename):
     # os.path.join takes the directory (absolute path) and joins it with
     # the relative path to the json file, this makes it so that no matter
     # where the user runs the script from, it will always find the json file
-    file_path = os.path.join(script_directory, 'memory', filename)
+    file_path = os.path.join(script_directory, "memory", filename)
     return file_path
 
 
@@ -35,13 +36,13 @@ def start_dictionary():
 
 
 def read_memory():
-    JSONmemory = get_memory_path('memory.json')
+    JSONmemory = get_memory_path("memory.json")
     # get the path to memory.json in a way that works no matter
     Memory_is_empty = False
     Memory_not_found_or_error = False
     Memory_found = "found"
     try:
-        with open(JSONmemory, 'r') as file:
+        with open(JSONmemory, "r") as file:
             # set a context manager to open the file in read mode
             # this will let me check old memoery as to not overide it
             memory_check = file.read()
@@ -72,7 +73,9 @@ def read_memory():
                 # dictionary
                 return status, Memory_found
     except (FileNotFoundError, json.JSONDecodeError):
-        print("\n System: \n - Memory file not found/Error decoding it, creating a new one.\n")
+        print(
+            "\n System: \n - Memory file not found/Error decoding it, creating a new one.\n"
+        )
         status = start_dictionary()
         Memory_not_found_or_error = True
         return status, Memory_not_found_or_error
@@ -80,18 +83,16 @@ def read_memory():
 
 
 def update_memory(data):
-    JSONmemory = get_memory_path('memory.json')
-    with open(JSONmemory, 'w') as file:
-        # write mode also creates the file if it does not exist
-        # so this basically sets up error avoidance and makes it up
-        # by creating the file later whilst reseting the dictionary
-        # sets a context manager to open the file in write mode
-        # (this also makes it so that it closes automatically)
-        # memory.json is saved as "file"
+    JSONmemory = get_memory_path("memory.json")
+    temp_file = JSONmemory + ".tmp"
+    # Write to a temporary file first
+    with open(temp_file, "w") as file:
         json.dump(data, file, indent=4)
-        # json.dump is used to basically takes the dictionary and writes
-        # it in json format in the file (memory.json)
-        # indent 4 is to make it human readable
+    # Replace the original file with the temporary file atomically
+    try:
+        os.replace(temp_file, JSONmemory)
+    except PermissionError:
+        print("\n System:\n - Permission error while updating memory file.\n")
 
 
 def sanitise_function():
@@ -109,9 +110,13 @@ def sanitise_function():
             task_to_compare = task_dictionary.get("Task").strip()
             if task_to_compare in seen_tasks:
                 print("\n System:")
-                print(f"'{task_to_compare}' in '{status_verification}' is a duplicate, deleting...\n")
+                print(
+                    f"'{task_to_compare}' in '{status_verification}' is a duplicate, deleting...\n"
+                )
                 duplicate = True
-                reverse_dictionary = reverse_memory_family.reverse_memory_read()  # reverse mapping
+                reverse_dictionary = (
+                    reverse_memory_family.reverse_memory_read()
+                )  # reverse mapping
                 reverse_uuid = reverse_dictionary.get(task_to_compare)
                 # i get the uuid by going to the reverse map dictionary, and since
                 # tasks are the keys and the values uuid, i can just input the task_tocompare
@@ -128,7 +133,7 @@ def sanitise_function():
             try:
                 del status[status_key][uuid_value]
                 print(f"Deleted task with UUID: {uuid_value} from '{status_key}'")
-            except (KeyError):
+            except KeyError:
                 print("\n System:")
                 print("Error deleting/finding the uuid and task.")
     update_memory(status)
