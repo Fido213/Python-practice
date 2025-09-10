@@ -47,3 +47,4 @@ while True:
         print("Exiting the todo list terminal interface.")
         rev.update_memory_reverse(rev.reverse_memory_Cache)
         break
+mem.sanitise_function()

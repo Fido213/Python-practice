@@ -163,6 +163,22 @@ def remove_task():
                     except (KeyError):
                         error_message = cli_interface.system_message("delete error")
                         print(error_message)
+                        print("\n System: \n Getting uuid from cache failed,"
+                              "\n attempting to retrieve uuid from memory.")
+                        try:
+                            reverse_map = reverse_memory_family.reverse_memory_read()
+                            reverse_uuid = reverse_map.get(answer)
+                            if not reverse_uuid:
+                                raise KeyError("Task not found in reverse map.")
+                            del status[status_input][reverse_uuid]
+                            memory_management_family.update_memory(status)
+                            reverse_memory_family.initialise_reverse_memory_cache()
+                            print(f"Removing task: {answer}")
+                        except (KeyError):
+                            error_message = cli_interface.system_message("delete error")
+                            print(error_message)
+                            print("\n System: \n Cancelling deletion.")
+                            break
                 else:
                     print("\n System: \nCanceling deletion")
                     break
