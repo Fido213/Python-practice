@@ -1,0 +1,35 @@
+[
+    {
+        "title": "MATHEMATIQUES",
+        "date": "Note du 21 septembre 2025",
+        "details": {
+            "Note élève :": "9,50 /10",
+            "Moyenne groupe :": "8,70 /10",
+            "Note la plus haute :": "10,00 /10",
+            "Note la plus basse :": "3,75 /10",
+            "Coefficient :": "1"
+        }
+    },
+    {
+        "title": "MATHEMATIQUES",
+        "date": "Note du 14 septembre 2025",
+        "details": {
+            "Note élève :": "10,00 /10",
+            "Moyenne groupe :": "7,53 /10",
+            "Note la plus haute :": "10,00 /10",
+            "Note la plus basse :": "1,00 /10",
+            "Coefficient :": "1"
+        }
+    },
+    {
+        "title": "PHYSIQUE-CHIMIE",
+        "date": "Note du 14 septembre 2025",
+        "details": {
+            "Note élève :": "16,00",
+            "Moyenne groupe :": "14,13",
+            "Note la plus haute :": "20,00",
+            "Note la plus basse :": "9,50",
+            "Coefficient :": "1"
+        }
+    }
+]

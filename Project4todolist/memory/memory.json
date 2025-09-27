@@ -1,53 +1,11 @@
 {
     "finished": {
-        "19295337-c882-4118-9733-53f839fea457": {
-            "UUID": "19295337-c882-4118-9733-53f839fea457",
-            "Date": "2025-09-11 00:28:22",
-            "Task": "testing atomic writes"
-        },
-        "3f93369f-754e-4043-b366-1f0b44c0f2a7": {
-            "UUID": "3f93369f-754e-4043-b366-1f0b44c0f2a7",
-            "Date": "2025-09-11 00:31:24",
-            "Task": "test"
-        },
-        "74a389bb-ff44-494f-9638-2517117603b2": {
-            "UUID": "74a389bb-ff44-494f-9638-2517117603b2",
-            "Date": "2025-09-11 00:31:27",
-            "Task": "test1"
-        },
-        "1214e4ce-c731-4d53-8704-cad5cc72a870": {
-            "UUID": "1214e4ce-c731-4d53-8704-cad5cc72a870",
-            "Date": "2025-09-11 00:31:58",
-            "Task": "dasdsads"
-        },
-        "2d2ba37e-7d86-4a8e-99eb-a466ee6c262e": {
-            "UUID": "2d2ba37e-7d86-4a8e-99eb-a466ee6c262e",
-            "Date": "2025-09-11 00:33:13",
-            "Task": "asd"
-        },
-        "34d34d79-edd5-42f4-b497-f636cbf3a1b8": {
-            "UUID": "34d34d79-edd5-42f4-b497-f636cbf3a1b8",
-            "Date": "2025-09-11 00:34:12",
-            "Task": "finished adding atomic writes"
+        "cfc8b8e9-9176-4c38-8a71-4ea4bf102221": {
+            "UUID": "cfc8b8e9-9176-4c38-8a71-4ea4bf102221",
+            "Date": "2025-09-12 13:20:15",
+            "Task": "finished todolist cli amazing project"
         }
     },
-    "pending": {
-        "6e382488-8047-40a0-8f5a-1fcff87f9cd2": {
-            "UUID": "6e382488-8047-40a0-8f5a-1fcff87f9cd2",
-            "Date": "2025-09-11 00:00:26",
-            "Task": "gon add atomic writes"
-        },
-        "e8299813-ac4f-4dac-8abb-b59f5276477c": {
-            "UUID": "e8299813-ac4f-4dac-8abb-b59f5276477c",
-            "Date": "2025-09-11 00:17:26",
-            "Task": "add"
-        }
-    },
-    "unfinished": {
-        "2Ge5664e-5c82-41ff-bf76-163095c1205b": {
-            "UUID": "2Ge5664e-5c82-41ff-bf76-163095c1205b",
-            "Date": "2025-09-06 23:07:34",
-            "Task": "testing"
-        }
-    }
+    "pending": {},
+    "unfinished": {}
 }

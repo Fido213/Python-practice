@@ -1,0 +1,364 @@
+[
+    {
+        "date": "Mardi 07 octobre",
+        "tasks": [
+            {
+                "subject": "NUMERIQUE SC.INFORM.",
+                "teacher": "M. BOUGAMALE F.",
+                "hours": "07h45 à 09h55",
+                "title": "Evaluation pratique sur les bases du Python",
+                "description": "Au programme :\nBases du langage Python\nLa boucle bornée (for)\nConditions et booléens\nLes fonctions\nRévisions:\nRefaire les exercices du cours\nS'entraîner avec les notebooks d'exercices"
+            }
+        ]
+    },
+    {
+        "date": "Jeudi 25 septembre",
+        "tasks": [
+            {
+                "subject": "NUMERIQUE SC.INFORM.",
+                "teacher": "M. BOUGAMALE F.",
+                "hours": "12h55 à 15h00",
+                "title": "Fonctions",
+                "description": "Fonctions | Cours corrigé\nInformations complémentaires sur les fonctions\nFonctions sans valeur de retour\nFonctions sans paramètre\nFonctions à plusieurs paramètres\nSortie anticipée d'une fonction, cas de plusieurs instructions return\nAppel d'une fonction à l'intérieur d'une fonction\nDoucmentation de fonction\nPortée des variables: variables locales et variables globales\nFonctions | Exercices Corrigés"
+            },
+            {
+                "subject": "ENSEIGN.SCIENTIFIQUE",
+                "teacher": "M. BORSALI F.",
+                "hours": "07h45 à 08h45",
+                "title": "Correction activité Etoile",
+                "description": "Cours chap 1 : Les éléments chimiques"
+            }
+        ]
+    },
+    {
+        "date": "Mercredi 24 septembre",
+        "tasks": [
+            {
+                "subject": "ANGLAIS LV1",
+                "teacher": "Mme MIRAMONT S.",
+                "hours": "12h55 à 13h55",
+                "title": "",
+                "description": "Reading Comprehension: \"The tea spy\""
+            }
+        ]
+    },
+    {
+        "date": "Mardi 23 septembre",
+        "tasks": [
+            {
+                "subject": "DNL SVT",
+                "teacher": "Mme BEYSSAT V.",
+                "hours": "12h55 à 13h55",
+                "title": "",
+                "description": "Cours annulé en raison d'une réunion"
+            },
+            {
+                "subject": "NUMERIQUE SC.INFORM.",
+                "teacher": "M. BOUGAMALE F.",
+                "hours": "07h45 à 09h55",
+                "title": "Fonctions",
+                "description": "Fonctions | Cours\nParties 1 et 2\nFonctions | Exercices"
+            }
+        ]
+    },
+    {
+        "date": "Lundi 22 septembre",
+        "tasks": [
+            {
+                "subject": "PHYSIQUE-CHIMIE",
+                "teacher": "Mme MOSTAFA T.",
+                "hours": "15h00 à 17h00",
+                "title": "",
+                "description": "Activité 2 chapitre 2 terminée\nActivité 3 chapitre 2 lue et expliquée"
+            },
+            {
+                "subject": "HISTOIRE-GEOGRAPHIE",
+                "teacher": "M. ROBERT A.",
+                "hours": "13h55 à 15h00",
+                "title": "H Chap 1",
+                "description": "II .Les années terribles et l'avenir incertain de la Révolution (1792 - 1799)\nA Les débuts difficiles de la République\n2 Gouvernement révolutionnaire et terreur (1793-94)\nEtude de documents\nQuestions et bilan de la Terreur."
+            },
+            {
+                "subject": "MATHEMATIQUES",
+                "teacher": "Mme SARWAT N.",
+                "hours": "10h55 à 12h55",
+                "title": "chapitre 1 : Second degré",
+                "description": "fiche 8 exercice 3\nfiche 9 b, e et c\nfiche 10 inéquation 1"
+            },
+            {
+                "subject": "HISTOIRE-GEOGRAPHIE",
+                "teacher": "M. ROBERT A.",
+                "hours": "08h45 à 10h55",
+                "title": "H Chap 1",
+                "description": "PPO / Le procès de Louis XVI\nDiffusion d'un extrait du film \"Les années terribles\" (1989) - 22' à 44'\nCarte mentale à réaliser\n+ analyse critique de l'extrait en s'appuyant sur des documents du manuel  : de la fiction à la réalité historique."
+            },
+            {
+                "subject": "ANGLAIS LV1",
+                "teacher": "Mme MIRAMONT S.",
+                "hours": "07h45 à 08h45",
+                "title": "",
+                "description": "-Listening Comprehension: A dangerous mission"
+            }
+        ]
+    },
+    {
+        "date": "Dimanche 21 septembre",
+        "tasks": [
+            {
+                "subject": "ESPAGNOL LV2",
+                "teacher": "Mme NASRI H.",
+                "hours": "11h55 à 12h55",
+                "title": "",
+                "description": "\"Vendiendo su alma\""
+            },
+            {
+                "subject": "PHYSIQUE-CHIMIE",
+                "teacher": "Mme MOSTAFA T.",
+                "hours": "09h55 à 11h55",
+                "title": "",
+                "description": "Exercice chapitre 1 corrigé\nActivité 1 chapitre 2 corrigée avec documents annexes, bilan et exercices d'application distribués \nActivité 2 chapitre 2 commencée"
+            },
+            {
+                "subject": "MATHEMATIQUES",
+                "teacher": "Mme SARWAT N.",
+                "hours": "07h45 à 09h55",
+                "title": "",
+                "description": "cours : somme et produit de deux racines\ncorrection fiche 7 ex 1 et 2 et 3\n \ncours : idée x2 - Sx + P\n \ncours :  Inéquations et tableaux de signe\n \nfiche 8 exercice 1 A et D"
+            }
+        ]
+    },
+    {
+        "date": "Jeudi 18 septembre",
+        "tasks": [
+            {
+                "subject": "NUMERIQUE SC.INFORM.",
+                "teacher": "M. BOUGAMALE F.",
+                "hours": "12h55 à 15h00",
+                "title": "Conoditions et booléens",
+                "description": "- Conditions et booléens\n- Conditions, tests et booléens | Exercices"
+            },
+            {
+                "subject": "ENSEIGN.SCIENTIFIQUE",
+                "teacher": "M. BORSALI F.",
+                "hours": "07h45 à 08h45",
+                "title": "Correction activité 1 : Les étoiles",
+                "description": ""
+            }
+        ]
+    },
+    {
+        "date": "Mercredi 17 septembre",
+        "tasks": [
+            {
+                "subject": "ANGLAIS LV1",
+                "teacher": "Mme MIRAMONT S.",
+                "hours": "12h55 à 13h55",
+                "title": "",
+                "description": "-Methodology: Oral Comprehension\n \n-Listening Comprehension: \"Tea trade\""
+            },
+            {
+                "subject": "ED.PHYSIQUE & SPORT.",
+                "teacher": "M. BERRAYAH M.",
+                "hours": "07h45 à 09h55",
+                "title": "Fiche certificative Natation sauvetage",
+                "description": "Veuillez prendre connaissance du déroulement et du barème de votre épreuve Natation Sauvetage.\nCordialement."
+            }
+        ]
+    },
+    {
+        "date": "Mardi 16 septembre",
+        "tasks": [
+            {
+                "subject": "DNL SVT",
+                "teacher": "Mme BEYSSAT V.",
+                "hours": "12h55 à 13h55",
+                "title": "",
+                "description": "- Correction of assignment # 1\n- Assignment #2 : préparation of our future experiments :\n\nIntroduction\n\nAlong with our exploration of sound properties and our perception of sound, we will prepare our experiments of plant and music.\n\nOur goals :\n\nPlants grow better with music : Science or myth ?\n\n+ Look for information (Ex : growth of tomatoes using music)\n\n+ Choose a classical music (Ex : Gnossienne n° 1 – Erik satie)\n\n+  Design a protocole : We will use lentil seeds\n\n \n\nDo individual plant have their own electrical patterns and consequently musical patterns? What is the impact of plant interaction on that pattern (presentation of an experiment)"
+            },
+            {
+                "subject": "ANGLAIS APPROFONDI",
+                "teacher": "Mme WEENS S.",
+                "hours": "10h55 à 11h55",
+                "title": "",
+                "description": "Listening comprehension about music in the UK"
+            },
+            {
+                "subject": "NUMERIQUE SC.INFORM.",
+                "teacher": "M. BOUGAMALE F.",
+                "hours": "07h45 à 09h55",
+                "title": "Conditions et booléens",
+                "description": "- P02 Conditions et booléens\n- P02 Exercices Conditions, tests et booléens"
+            }
+        ]
+    },
+    {
+        "date": "Lundi 15 septembre",
+        "tasks": [
+            {
+                "subject": "PHYSIQUE-CHIMIE",
+                "teacher": "Mme MOSTAFA T.",
+                "hours": "15h00 à 17h00",
+                "title": "",
+                "description": "Activité 4 chapitre 1 terminée en binôme puis correction collective et relecture de la fiche d'utilisation du spectrophotomètre\nBilan chapitre 1 (fiche distribuée et cours à lire dans les livres numériques)\nExercice d'application pour chapitre 1 fait\nActivité 1 chapitre 2 commencée"
+            },
+            {
+                "subject": "HISTOIRE-GEOGRAPHIE",
+                "teacher": "M. ROBERT A.",
+                "hours": "13h55 à 15h00",
+                "title": "H Chap 1",
+                "description": "Les évenements de 1791-92 en France\n> Transition entre les deux premières parties du chapitre\nI la nation française en révolution (1789-92)\nII les années terribles et l'avenir incertain de la Révolution\nA. Les débuts difficiles de la République\nLa Convention et l'opposition Montagnards/Girondins"
+            },
+            {
+                "subject": "MATHEMATIQUES",
+                "teacher": "Mme SARWAT N.",
+                "hours": "10h55 à 12h55",
+                "title": "",
+                "description": "correction fiche 4 équations \ncorrection fiche 5 équations\nfiche 6 factoriser \n \ncours : factoriser un polynôme du second degré"
+            },
+            {
+                "subject": "HISTOIRE-GEOGRAPHIE",
+                "teacher": "M. ROBERT A.",
+                "hours": "08h45 à 10h55",
+                "title": "H Chap 1",
+                "description": "Correction du travail / DDHC > tableau synthétique de classement de idées / réorganisation politique et de la société contenue dans cette DDHC\nCours\nI.C La construction d'une France nouvelle.\nCe qu'il faut retenir du nouveau régime politique, de la réorganisation admnistrative du pays et de l'Eglise"
+            },
+            {
+                "subject": "ANGLAIS LV1",
+                "teacher": "Mme MIRAMONT S.",
+                "hours": "07h45 à 08h45",
+                "title": "",
+                "description": "Reading Comprehension: \"Tea trade\" p 16"
+            }
+        ]
+    },
+    {
+        "date": "Dimanche 14 septembre",
+        "tasks": [
+            {
+                "subject": "ENS. MORAL & CIVIQUE",
+                "teacher": "M. ROBERT A.",
+                "hours": "11h55 à 12h55",
+                "title": "EMC",
+                "description": "Présentation orale et individuelle de chaque élève\nMéthodes de travail\nDistribution d'un texte d'accroche pour le thème 1 : cohésion et diversité dans une société démocratique."
+            },
+            {
+                "subject": "PHYSIQUE-CHIMIE",
+                "teacher": "Mme MOSTAFA T.",
+                "hours": "09h55 à 11h55",
+                "title": "",
+                "description": "Activité 4 chapitre 1 presque terminée"
+            },
+            {
+                "subject": "MATHEMATIQUES",
+                "teacher": "Mme SARWAT N.",
+                "hours": "07h45 à 09h55",
+                "title": "",
+                "description": "cours : équations du second degré\nfiche 2 ex 1 et 2\nfiche 3 ex 3 et 4"
+            }
+        ]
+    },
+    {
+        "date": "Jeudi 11 septembre",
+        "tasks": [
+            {
+                "subject": "NUMERIQUE SC.INFORM.",
+                "teacher": "M. BOUGAMALE F.",
+                "hours": "12h55 à 15h00",
+                "title": "Boucle bornée",
+                "description": "- Boucle bornée (for)\n- Exercices boucle bornée (for)"
+            },
+            {
+                "subject": "ENSEIGN.SCIENTIFIQUE",
+                "teacher": "M. BORSALI F.",
+                "hours": "08h45 à 09h55",
+                "title": "Séance de présentation, programme et consignes",
+                "description": ""
+            },
+            {
+                "subject": "ENSEIGN.SCIENTIFIQUE",
+                "teacher": "M. BORSALI F.",
+                "hours": "07h45 à 08h45",
+                "title": "Séance de présentation, programme et consignes",
+                "description": "Activité 1 : Les éléments chimiques"
+            }
+        ]
+    },
+    {
+        "date": "Mardi 09 septembre",
+        "tasks": [
+            {
+                "subject": "DNL SVT",
+                "teacher": "Mme BEYSSAT V.",
+                "hours": "12h55 à 13h55",
+                "title": "",
+                "description": "- Présentation de la SELO\n- Présentation du programme\n- Assignment #1 : What is sound ?"
+            },
+            {
+                "subject": "NUMERIQUE SC.INFORM.",
+                "teacher": "M. BOUGAMALE F.",
+                "hours": "07h45 à 09h55",
+                "title": "Bases du langage Python",
+                "description": "- Création de compte Capytale\n- Bases du langage Python\n- Bases du langage Python Corrigé\n \n- Exercices Base du langage Python\n- Exercices Corrigés Bases du Python"
+            }
+        ]
+    },
+    {
+        "date": "Lundi 08 septembre",
+        "tasks": [
+            {
+                "subject": "PHYSIQUE-CHIMIE",
+                "teacher": "Mme MOSTAFA T.",
+                "hours": "15h00 à 17h00",
+                "title": "",
+                "description": "Activité 1 chapitre 1 terminée\nActivité 2 chapitre 1 terminée\nActivité 3 chapitre 1 distribuée"
+            },
+            {
+                "subject": "HISTOIRE-GEOGRAPHIE",
+                "teacher": "M. ROBERT A.",
+                "hours": "13h55 à 15h00",
+                "title": "H Chap 1",
+                "description": "I. B. Nuit du 4 août et DDHC\nEtude de la DDHC\n- En quoi élabore-t-elle une nouvelle organisation politique et de la société en France ?"
+            },
+            {
+                "subject": "MATHEMATIQUES",
+                "teacher": "Mme SARWAT N.",
+                "hours": "10h55 à 12h55",
+                "title": "chapitre 1 : Second degré",
+                "description": "correction fiche 1 en entier + exercice supplémentaire factoriser avec IR\nméthode 2 alpha et beta\nsens de variation"
+            },
+            {
+                "subject": "HISTOIRE-GEOGRAPHIE",
+                "teacher": "M. ROBERT A.",
+                "hours": "08h45 à 10h55",
+                "title": "H Chap 1 : La Révolution française et l'Empire",
+                "description": "Intro\nI la nation française en révolution (1792 - 1792)\nA L'année 1789"
+            },
+            {
+                "subject": "ANGLAIS LV1",
+                "teacher": "Mme MIRAMONT S.",
+                "hours": "07h45 à 08h45",
+                "title": "",
+                "description": "-Presentation of the curriculum, the skills and the assesment grids.\n \nSEQUENCE 1: How did tea become part of British identity?\n \nAXIS 1: Identity and Exchanges\n\nBrainstorming: Fill in the grid about identity and exchanges\n\n                       Collective work: share your findings."
+            }
+        ]
+    },
+    {
+        "date": "Dimanche 07 septembre",
+        "tasks": [
+            {
+                "subject": "PHYSIQUE-CHIMIE",
+                "teacher": "Mme MOSTAFA T.",
+                "hours": "09h55 à 11h55",
+                "title": "",
+                "description": "Activité 1 chapitre 1 presque finie"
+            },
+            {
+                "subject": "MATHEMATIQUES",
+                "teacher": "Mme SARWAT N.",
+                "hours": "07h45 à 09h55",
+                "title": "",
+                "description": "Chapitre 1 second degré\nForme développée\nForme canonique"
+            }
+        ]
+    }
+]

@@ -1,2 +1,4 @@
 inquirer
 questionary
+playwright
+BeautifulSoup4
