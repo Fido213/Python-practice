@@ -6,6 +6,8 @@ import json
 
 # event id = submit
 # submit = confirm
+username = ""
+password = ""
 
 
 def detect_login_security(page):
@@ -86,8 +88,8 @@ with sync_playwright() as p:
     page.wait_for_selector("input#username", timeout=5000)
     page.wait_for_selector("input#password", timeout=5000)
     # Use fill which triggers the usual events, fill is also faster than type
-    page.fill("input#username", "farid.el_achkar")
-    page.fill("input#password", "Fortnite@2020_2021")
+    page.fill("input#username", username)
+    page.fill("input#password", password)
     # make sure submit is ready and click, then wait for redirect
     page.press("input#password", "Enter")
     try:
