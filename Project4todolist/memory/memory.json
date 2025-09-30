@@ -6,6 +6,12 @@
             "Task": "finished todolist cli amazing project"
         }
     },
-    "pending": {},
+    "pending": {
+        "d35c2979-bcb6-4659-819c-4de2e8b3f79e": {
+            "UUID": "d35c2979-bcb6-4659-819c-4de2e8b3f79e",
+            "Date": "2025-09-28 15:01:25",
+            "Task": "Refactor and remodule webscraping into different functions"
+        }
+    },
     "unfinished": {}
 }

@@ -12,6 +12,84 @@
         ]
     },
     {
+        "date": "Aujourd'hui",
+        "tasks": [
+            {
+                "subject": "DNL SVT",
+                "teacher": "Mme BEYSSAT V.",
+                "hours": "12h55 à 13h55",
+                "title": "",
+                "description": "Activity # 4 – Pythagoras and music\n\nSome sounds are harmonious to our ears while other are dissonant. \n\n Problem to solve : What is the origin of this difference ?\n\nBefore watching the video : look for the correspondance between the notes used in latin countries and the notes used in anglo-saxon countries.\n\n \n\n \n\nWatch the video at the following link : https://youtu.be/H6NtcWkGh50\n\nAnd answer the questions :\n\n1 / Who was Pythagoras ? When and where did he live ?\n\n \n\n2 / What is the difference between the ratios of harmonious sounds and dissonant sounds ?\n\n \n\n3/ What is an octave ?  What is the frequency ratio between notes separated by an octave ?\n\n \n\n4/ What is the ratio of a perfect fifth ? (= une quinte juste)\n\n \n\n5/ What is the ratio of a perfect fourth ?(= quarte juste)\n\n \n\n6/ What is the ratio of a third majeur? (= tierce major)"
+            },
+            {
+                "subject": "ANGLAIS APPROFONDI",
+                "teacher": "Mme WEENS S.",
+                "hours": "10h55 à 11h55",
+                "title": "",
+                "description": "Research project : \nIs English music taking over ? Is English still the official language of music ? Do you prefer listening to English music or music in another language?"
+            }
+        ]
+    },
+    {
+        "date": "Hier",
+        "tasks": [
+            {
+                "subject": "HISTOIRE-GEOGRAPHIE",
+                "teacher": "M. ROBERT A.",
+                "hours": "13h55 à 15h00",
+                "title": "h Chap 1",
+                "description": "Rédaction de l'analyse de documents / l'évolution de la souveraineté nationale ss la Révolution."
+            },
+            {
+                "subject": "MATHEMATIQUES",
+                "teacher": "Mme SARWAT N.",
+                "hours": "10h55 à 12h55",
+                "title": "",
+                "description": "correction fiche 15 exercice 1 \nfiche 16 \nfiche 15 exercice 2"
+            },
+            {
+                "subject": "HISTOIRE-GEOGRAPHIE",
+                "teacher": "M. ROBERT A.",
+                "hours": "08h45 à 10h55",
+                "title": "h Chap 1",
+                "description": "II A.2 Synthèse écrite sur la politique de la Terreur : étude de documents\n+\nMéthodologie : l'analyse de documents\nFiche de méthode\nExercice pratique : mise en application de la méthode\nEtude de deux documents - cf manuel p 50 du manuel numérique"
+            },
+            {
+                "subject": "ANGLAIS LV1",
+                "teacher": "Mme MIRAMONT S.",
+                "hours": "07h45 à 08h45",
+                "title": "",
+                "description": "Listening Comprehension: Video: ‘Tea time’ Why are Brits so obsessed with tea?"
+            }
+        ]
+    },
+    {
+        "date": "Dimanche 28 septembre",
+        "tasks": [
+            {
+                "subject": "ENS. MORAL & CIVIQUE",
+                "teacher": "M. ROBERT A.",
+                "hours": "11h55 à 12h55",
+                "title": "EMC",
+                "description": "Correction de l'étude du texte d'accroche\nSchématisation du processus de fractures dans la société française après les attentats de janvier 2015. \nRepli communautaire & mise en difficulté de la cohésion sociale"
+            },
+            {
+                "subject": "PHYSIQUE-CHIMIE",
+                "teacher": "Mme MOSTAFA T.",
+                "hours": "09h55 à 11h55",
+                "title": "",
+                "description": "Corrigé des exercices sur les couleurs distribué\nBilan(2) chapitre 2 distribuée\nActivité 3 chapitre 2 commencée (manipulation réalisée)--> problème avec regressi (j'ai trouvé d''où vient le problème, explication au cours suivant)\nFiche regressi distribuée"
+            },
+            {
+                "subject": "MATHEMATIQUES",
+                "teacher": "Mme SARWAT N.",
+                "hours": "07h45 à 09h55",
+                "title": "",
+                "description": "correction devoirs:\nfiche 10, 11,12,13 et 14"
+            }
+        ]
+    },
+    {
         "date": "Jeudi 25 septembre",
         "tasks": [
             {
@@ -51,6 +129,13 @@
                 "hours": "12h55 à 13h55",
                 "title": "",
                 "description": "Cours annulé en raison d'une réunion"
+            },
+            {
+                "subject": "ANGLAIS APPROFONDI",
+                "teacher": "Mme WEENS S.",
+                "hours": "10h55 à 11h55",
+                "title": "",
+                "description": "Auto correction of the listening comprehension about The Premises using the script"
             },
             {
                 "subject": "NUMERIQUE SC.INFORM.",
