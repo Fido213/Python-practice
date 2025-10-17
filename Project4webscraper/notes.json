@@ -1,5 +1,27 @@
 [
     {
+        "title": "FRANCAIS",
+        "date": "Note du 05 octobre 2025",
+        "details": {
+            "Note élève :": "18,50",
+            "Moyenne classe :": "15,17",
+            "Note la plus haute :": "20,00",
+            "Note la plus basse :": "7,00",
+            "Coefficient :": "2"
+        }
+    },
+    {
+        "title": "PHYSIQUE-CHIMIE",
+        "date": "Note du 29 septembre 2025",
+        "details": {
+            "Note élève :": "Abs",
+            "Moyenne groupe :": "Abs",
+            "Note la plus haute :": "",
+            "Note la plus basse :": "",
+            "Coefficient :": "1"
+        }
+    },
+    {
         "title": "MATHEMATIQUES",
         "date": "Note du 21 septembre 2025",
         "details": {

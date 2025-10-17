@@ -15,6 +15,51 @@
         "date": "Aujourd'hui",
         "tasks": [
             {
+                "subject": "ESPAGNOL LV2",
+                "teacher": "Mme NASRI H.",
+                "hours": "11h55 à 12h55",
+                "title": "",
+                "description": "Síntesis vídeo Turismo andaluz"
+            },
+            {
+                "subject": "PHYSIQUE-CHIMIE",
+                "teacher": "Mme MOSTAFA T.",
+                "hours": "09h55 à 11h55",
+                "title": "",
+                "description": "Chapitre 2 clos\nChapitre 3 commencé et deux vidéos visionnées : Histoire de la lumière : Ondes et photons et J. Bobroff, physique quantique, dualité onde-corpuscule"
+            },
+            {
+                "subject": "MATHEMATIQUES",
+                "teacher": "Mme SARWAT N.",
+                "hours": "07h45 à 09h55",
+                "title": "chapitre 2 : Probabilités",
+                "description": "fiche révision avec problème second degré\n \nchapitre 2 : Probabilités"
+            }
+        ]
+    },
+    {
+        "date": "Mercredi 01 octobre",
+        "tasks": [
+            {
+                "subject": "ANGLAIS LV1",
+                "teacher": "Mme MIRAMONT S.",
+                "hours": "12h55 à 13h55",
+                "title": "",
+                "description": "Reading Comprehension: One beverage for all."
+            }
+        ]
+    },
+    {
+        "date": "Mardi 30 septembre",
+        "tasks": [
+            {
+                "subject": "ESPAGNOL LV2",
+                "teacher": "Mme NASRI H.",
+                "hours": "13h55 à 15h00",
+                "title": "",
+                "description": "Co Turismo andaluz responsable"
+            },
+            {
                 "subject": "DNL SVT",
                 "teacher": "Mme BEYSSAT V.",
                 "hours": "12h55 à 13h55",
@@ -31,8 +76,15 @@
         ]
     },
     {
-        "date": "Hier",
+        "date": "Lundi 29 septembre",
         "tasks": [
+            {
+                "subject": "PHYSIQUE-CHIMIE",
+                "teacher": "Mme MOSTAFA T.",
+                "hours": "15h00 à 17h00",
+                "title": "",
+                "description": "Activité 3 chapitre 2 revue \nExercice d'application sur les lentilles fait individuellement et ramassé"
+            },
             {
                 "subject": "HISTOIRE-GEOGRAPHIE",
                 "teacher": "M. ROBERT A.",

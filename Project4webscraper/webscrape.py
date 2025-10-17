@@ -7,8 +7,8 @@ import datetime
 
 # event id = submit
 # submit = confirm
-username = ""
-password = ""
+username = "farid.el_achkar"
+password = "Fortnite@2020_2021"
 
 
 def detect_login_security(page):
