@@ -1,14 +1,12 @@
 from playwright.sync_api import sync_playwright, TimeoutError
-import requests
 from bs4 import BeautifulSoup
 import time
 import json
-import datetime
 
 # event id = submit
 # submit = confirm
-username = "farid.el_achkar"
-password = "Fortnite@2020_2021"
+username = ""
+password = ""
 
 
 def detect_login_security(page):
