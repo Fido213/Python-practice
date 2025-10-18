@@ -2,3 +2,5 @@ inquirer
 questionary
 playwright
 BeautifulSoup4
+Pyxel
+tutor
