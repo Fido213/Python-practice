@@ -174,7 +174,7 @@ def draw():
 # --- 4. Initialization and Run ---
 def game_of_life():
     init_grid()
-    pyxel.init(SCREEN_SIZE_W, SCREEN_SIZE_H, title="Conway's Game of Life", fps=120)
+    pyxel.init(SCREEN_SIZE_W, SCREEN_SIZE_H, title="Conway's Game of Life", fps=10)
     pyxel.run(update, draw)
 
 

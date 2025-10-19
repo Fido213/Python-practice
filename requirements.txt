@@ -4,3 +4,5 @@ playwright
 BeautifulSoup4
 Pyxel
 tutor
+deepface opencv-python
+keyboard
