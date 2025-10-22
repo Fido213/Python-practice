@@ -1,6 +1,8 @@
 from deepface import DeepFace
 import cv2
 import keyboard
+from collections import Counter
+import json
 
 # this is gonna be a silly python script that uses deepface to detect faces
 # in a live video, a display a meme when its respective emotion is detected
@@ -58,6 +60,31 @@ import keyboard
 # this way the code is modular and easier to manage and add other features
 
 
+emotion_counter = Counter()
+# this is useful to keep track of detected emotions over time
+# so this does is, it counts how many times each emotion is detected
+# we can use this data to determine the most frequent emotion
+# over a period of time, to avoid reacting to brief or incorrect detections
+# but in python, what this actually does is, it creates a dictionary
+# with the properties of a counter, so if i add things to it, it takes the 
+# item as key, and the count as value, which it updates automatically
+# so if i do emotion_counter['happy'] += 1
+# it adds 1 to the count of 'happy' emotion
+# the .update method can take an iterable (like a list)
+# and it adds 1 to each item in the iterable, which makes it
+# perfect for our use case since we can just do
+# emotion_counter.update([emotion]) each time we detect an emotion
+# ill also use json to save the emotion counts to a file
+# so we can analyze them later or use them for other purposes
+# for that lets make a helper function to save the counter to a json file
+
+
+def save_emotion_counts(counter):
+    file_path = "Project6sillyvisualai/emotions_counts.json"
+    with open(file_path, "w") as f:
+        json.dump(counter, f, indent=4)
+
+
 def video_capture():
     cap = cv2.VideoCapture(0)
     while True:
@@ -85,29 +112,28 @@ def router():
         # we assign it to frame variable, then after
         # the inner loop is done, we call it again
         # here we just route our frame to other functions
-        emotion = detect_emotion(frame)
+        _, emotion_counter = detect_emotion(frame)
         display_feed(frame)
-        emotion_analysis(emotion)
         if keyboard.is_pressed("q"):
             cv2.VideoCapture(0).release()
             cv2.destroyAllWindows()
+            save_emotion_counts(emotion_counter)
+            # we update the counter with the detected emotion
             break
 
 
 def detect_emotion(frame):
     result = DeepFace.analyze(frame, actions=["emotion"], enforce_detection=False, detector_backend='yunet')
     emotion = result[0]["dominant_emotion"]
-    return emotion
+    emotion_counter.update([emotion])
+    print(f"Detected emotion: {emotion}")
+    return emotion, emotion_counter
 
 
 def display_feed(frame):
     cv2.imshow("Emotion", frame)
     cv2.waitKey(1)
     # waitKey is necessary for imshow to work properly
-
-
-def emotion_analysis(emotion):
-    print(f"Detected emotion: {emotion}")
 
 
 router()
