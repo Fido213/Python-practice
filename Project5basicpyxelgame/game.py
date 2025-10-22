@@ -52,7 +52,7 @@ def draw():
 # This is where the application starts
 def main_game():
     # Initialize Pyxel with screen size and title
-    pyxel.init(SCREEN_W, SCREEN_H, title="Procedural Pyxel Demo", fps=100)
+    pyxel.init(SCREEN_W, SCREEN_H, title="Procedural Pyxel Demo", fps=10)
     
     # Run the main game loop
     pyxel.run(update, draw)
